@@ -1,0 +1,29 @@
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csprojAssemblyReference.cache
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.CoreCompileInputs.cache
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe.config
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+D:\ENSEIGNEMENTS\SoCWS SI4\TD Self Hosted WS\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe.config
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.AssemblyReference.cache
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.SuggestedBindingRedirects.cache
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.CoreCompileInputs.cache
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Ben\Documents\Enseignements\2022-2023\RMISoc\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe.config
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.AssemblyReference.cache
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.CoreCompileInputs.cache
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\LETSGO_BIKING\ConsoleApp_for_Self_Hosted_WS\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe.config
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\bin\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.AssemblyReference.cache
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.csproj.CoreCompileInputs.cache
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.exe
+C:\Users\Julien\OneDrive - Université Côte d'Azur\Cours\POLYTECH\SI4\S7\MIDDLEWARE\PROJET\C#_SERVER_TEST\ConsoleApp_for_Self_Hosted_WS\obj\Debug\ConsoleApp_for_Self_Hosted_WS.pdb
