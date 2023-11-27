@@ -22,10 +22,12 @@
     <MetadataSource Address="http://localhost:8090/Middleware/Itinerary" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Itinerary.disco" MetadataType="Disco" ID="80ee544c-1ad0-44e0-bc72-73164f79addb" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?disco" />
-    <MetadataFile FileName="Itinerary.xsd" MetadataType="Schema" ID="a911da82-29ec-4d9b-9d10-82a01e0016f4" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd0" />
-    <MetadataFile FileName="Itinerary1.xsd" MetadataType="Schema" ID="aebb9b19-8bf6-486d-ac64-568bc06b6d8d" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd1" />
     <MetadataFile FileName="ItineraryService.wsdl" MetadataType="Wsdl" ID="34229152-c50c-457c-ac7b-1cff1ab8fcb4" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?wsdl" />
+    <MetadataFile FileName="Itinerary3.xsd" MetadataType="Schema" ID="5bf2e7ea-b50b-43e8-9c84-672c502ca26f" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd3" />
+    <MetadataFile FileName="Itinerary2.xsd" MetadataType="Schema" ID="f186137b-5e2a-42b5-b55a-243a0bb846d2" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd2" />
+    <MetadataFile FileName="Itinerary1.xsd" MetadataType="Schema" ID="aebb9b19-8bf6-486d-ac64-568bc06b6d8d" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd1" />
+    <MetadataFile FileName="Itinerary.xsd" MetadataType="Schema" ID="a911da82-29ec-4d9b-9d10-82a01e0016f4" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd0" />
+    <MetadataFile FileName="Itinerary.disco" MetadataType="Disco" ID="80ee544c-1ad0-44e0-bc72-73164f79addb" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

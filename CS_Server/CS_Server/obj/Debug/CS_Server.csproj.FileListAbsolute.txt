@@ -26,3 +26,4 @@ C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_Server\C
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_Server\CS_Server\obj\Debug\CS_Server.csproj.CopyComplete
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_Server\CS_Server\bin\Newtonsoft.Json.dll
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_Server\CS_Server\bin\Newtonsoft.Json.xml
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER\CS_Server\bin\GeoCoordinate.NetCore.dll

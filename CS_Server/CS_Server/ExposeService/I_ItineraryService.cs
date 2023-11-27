@@ -1,4 +1,5 @@
-﻿using CS_Server.Utils;
+﻿using CS_Server.InternalSystem;
+using CS_Server.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web.UI.WebControls;
+using GeoCoordinatePortable;
 
 namespace CS_Server
 {
@@ -14,13 +17,15 @@ namespace CS_Server
     [ServiceContract]
     public interface I_ItineraryService
     {
+        //ensemble des addresses compatible avec l'input
+        [OperationContract]
+        string[] getCorrectAdress(string input);
 
         [OperationContract]
-        string toString();
+        //RETURN FORMAT : LAT/LONG
+        GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress);
 
         [OperationContract]
-        void getItinerary(string start, string arrival);
-
-        // TODO: ajoutez vos opérations de service ici
+        void getItinerary(string start, string end);
     }
 }

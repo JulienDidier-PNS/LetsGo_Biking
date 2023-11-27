@@ -9,23 +9,174 @@
 //------------------------------------------------------------------------------
 
 namespace CS_CLIENT.ItinearyService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GeoCoordinate", Namespace="http://schemas.datacontract.org/2004/07/GeoCoordinatePortable")]
+    [System.SerializableAttribute()]
+    public partial class GeoCoordinate : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AltitudeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double CourseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HorizontalAccuracyField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LatitudeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LongitudeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double SpeedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double VerticalAccuracyField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Altitude {
+            get {
+                return this.AltitudeField;
+            }
+            set {
+                if ((this.AltitudeField.Equals(value) != true)) {
+                    this.AltitudeField = value;
+                    this.RaisePropertyChanged("Altitude");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Course {
+            get {
+                return this.CourseField;
+            }
+            set {
+                if ((this.CourseField.Equals(value) != true)) {
+                    this.CourseField = value;
+                    this.RaisePropertyChanged("Course");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HorizontalAccuracy {
+            get {
+                return this.HorizontalAccuracyField;
+            }
+            set {
+                if ((this.HorizontalAccuracyField.Equals(value) != true)) {
+                    this.HorizontalAccuracyField = value;
+                    this.RaisePropertyChanged("HorizontalAccuracy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Latitude {
+            get {
+                return this.LatitudeField;
+            }
+            set {
+                if ((this.LatitudeField.Equals(value) != true)) {
+                    this.LatitudeField = value;
+                    this.RaisePropertyChanged("Latitude");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Longitude {
+            get {
+                return this.LongitudeField;
+            }
+            set {
+                if ((this.LongitudeField.Equals(value) != true)) {
+                    this.LongitudeField = value;
+                    this.RaisePropertyChanged("Longitude");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Speed {
+            get {
+                return this.SpeedField;
+            }
+            set {
+                if ((this.SpeedField.Equals(value) != true)) {
+                    this.SpeedField = value;
+                    this.RaisePropertyChanged("Speed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double VerticalAccuracy {
+            get {
+                return this.VerticalAccuracyField;
+            }
+            set {
+                if ((this.VerticalAccuracyField.Equals(value) != true)) {
+                    this.VerticalAccuracyField = value;
+                    this.RaisePropertyChanged("VerticalAccuracy");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ItinearyService.I_ItineraryService")]
     public interface I_ItineraryService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/toString", ReplyAction="http://tempuri.org/I_ItineraryService/toStringResponse")]
-        string toString();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getCorrectAdress", ReplyAction="http://tempuri.org/I_ItineraryService/getCorrectAdressResponse")]
+        string[] getCorrectAdress(string input);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/toString", ReplyAction="http://tempuri.org/I_ItineraryService/toStringResponse")]
-        System.Threading.Tasks.Task<string> toStringAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getCorrectAdress", ReplyAction="http://tempuri.org/I_ItineraryService/getCorrectAdressResponse")]
+        System.Threading.Tasks.Task<string[]> getCorrectAdressAsync(string input);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getCoordonateWithUniqueCorrectAdress", ReplyAction="http://tempuri.org/I_ItineraryService/getCoordonateWithUniqueCorrectAdressRespons" +
+            "e")]
+        CS_CLIENT.ItinearyService.GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getCoordonateWithUniqueCorrectAdress", ReplyAction="http://tempuri.org/I_ItineraryService/getCoordonateWithUniqueCorrectAdressRespons" +
+            "e")]
+        System.Threading.Tasks.Task<CS_CLIENT.ItinearyService.GeoCoordinate> getCoordonateWithUniqueCorrectAdressAsync(string correctAdrress);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getItinerary", ReplyAction="http://tempuri.org/I_ItineraryService/getItineraryResponse")]
-        void getItinerary(string start, string arrival);
+        void getItinerary(string start, string end);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_ItineraryService/getItinerary", ReplyAction="http://tempuri.org/I_ItineraryService/getItineraryResponse")]
-        System.Threading.Tasks.Task getItineraryAsync(string start, string arrival);
+        System.Threading.Tasks.Task getItineraryAsync(string start, string end);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,20 +206,28 @@ namespace CS_CLIENT.ItinearyService {
                 base(binding, remoteAddress) {
         }
         
-        public string toString() {
-            return base.Channel.toString();
+        public string[] getCorrectAdress(string input) {
+            return base.Channel.getCorrectAdress(input);
         }
         
-        public System.Threading.Tasks.Task<string> toStringAsync() {
-            return base.Channel.toStringAsync();
+        public System.Threading.Tasks.Task<string[]> getCorrectAdressAsync(string input) {
+            return base.Channel.getCorrectAdressAsync(input);
         }
         
-        public void getItinerary(string start, string arrival) {
-            base.Channel.getItinerary(start, arrival);
+        public CS_CLIENT.ItinearyService.GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress) {
+            return base.Channel.getCoordonateWithUniqueCorrectAdress(correctAdrress);
         }
         
-        public System.Threading.Tasks.Task getItineraryAsync(string start, string arrival) {
-            return base.Channel.getItineraryAsync(start, arrival);
+        public System.Threading.Tasks.Task<CS_CLIENT.ItinearyService.GeoCoordinate> getCoordonateWithUniqueCorrectAdressAsync(string correctAdrress) {
+            return base.Channel.getCoordonateWithUniqueCorrectAdressAsync(correctAdrress);
+        }
+        
+        public void getItinerary(string start, string end) {
+            base.Channel.getItinerary(start, end);
+        }
+        
+        public System.Threading.Tasks.Task getItineraryAsync(string start, string end) {
+            return base.Channel.getItineraryAsync(start, end);
         }
     }
 }

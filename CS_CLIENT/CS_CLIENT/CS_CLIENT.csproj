@@ -55,10 +55,19 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\ItinearyService\CS_CLIENT.ItinearyService.GeoCoordinate.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ItinearyService\Itinerary.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ItinearyService\Itinerary1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ItinearyService\Itinerary2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ItinearyService\Itinerary3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ItinearyService\ItineraryService.wsdl" />

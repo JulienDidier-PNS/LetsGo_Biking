@@ -11,25 +11,46 @@ using System.Web.UI.WebControls;
 using CS_Server.Utils;
 using System.Threading.Tasks;
 using CS_Server.InternalSystem;
+using System.Drawing;
+using System.Collections.Specialized;
+using GeoCoordinatePortable;
+using CS_Server.InternalSystem.RoutingSystem;
 
 namespace CS_Server
 {
     public class ItineraryService : I_ItineraryService
     {
-        public string toString()
+        //retourne l'ensemble des adresses trouvées
+        public string[] getCorrectAdress(string input)
         {
-            return "azy ça fonctionne";
+            try
+            {
+                Console.WriteLine("Recherche de l'adresse exacte de :" + input);
+                return AdressConverter.inputToCompleteAdress(input);
+            }
+            catch (Exception ex) {
+                Console.WriteLine("Erreur côté serveur pour l'adresse correcte !");
+                throw new Exception(ex.ToString());
+            }
         }
 
-        public async void getItinerary(string start, string arrival)
+        public GeoCoordinate getCoordonateWithUniqueCorrectAdress(string uniqAdress)
         {
-            Console.WriteLine("Nouvelle requête !");
-            Console.WriteLine("Calcul de : " + start + " to " + arrival);
-            Console.WriteLine("Conversion en adresse....");
-            UniversalConverter.inputToCompleteAdress(arrival);
+            Console.WriteLine("Recherche des coordonnées pour :");
+            return AdressConverter.correctAdressToGeoCoordonate(uniqAdress).Result;
         }
 
+         public void getItinerary(string start, string end)
+        {
 
+            GeoCoordinate startPosition = AdressConverter.correctAdressToGeoCoordonate(start).Result;
+            GeoCoordinate endPosition = AdressConverter.correctAdressToGeoCoordonate(end).Result; ;
+
+            Console.WriteLine("COORDONEES POINT DE DEPART : " + startPosition.ToString());
+            Console.WriteLine("COORDONEES POINT DE D'ARRIVEE : " + endPosition.ToString());
+
+            ItineraryConverter.getItinerary(startPosition, endPosition);
+        }
 
     }
 }
