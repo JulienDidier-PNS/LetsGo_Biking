@@ -28,6 +28,7 @@
     <MetadataFile FileName="Itinerary1.xsd" MetadataType="Schema" ID="aebb9b19-8bf6-486d-ac64-568bc06b6d8d" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd1" />
     <MetadataFile FileName="Itinerary.xsd" MetadataType="Schema" ID="a911da82-29ec-4d9b-9d10-82a01e0016f4" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd0" />
     <MetadataFile FileName="Itinerary.disco" MetadataType="Disco" ID="80ee544c-1ad0-44e0-bc72-73164f79addb" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?disco" />
+    <MetadataFile FileName="Itinerary4.xsd" MetadataType="Schema" ID="59f63011-cc80-43be-b274-05f27f744e86" SourceId="1" SourceUrl="http://localhost:8090/Middleware/Itinerary?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

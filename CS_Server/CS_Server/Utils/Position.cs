@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
+using GeoCoordinatePortable;
 
 namespace CS_Server.Utils
 {
@@ -25,6 +26,12 @@ namespace CS_Server.Utils
         public string toString()
         {
             return latitude + "," + longitude;
+        }
+
+
+        public GeoCoordinate toGeoCoordinate()
+        {
+            return new GeoCoordinate(latitude, longitude);
         }
     }
 }

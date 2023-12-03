@@ -216,6 +216,7 @@
       <xsd:import schemaLocation="http://localhost:8090/Middleware/Itinerary?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8090/Middleware/Itinerary?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:8090/Middleware/Itinerary?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/GeoCoordinatePortable" />
+      <xsd:import schemaLocation="http://localhost:8090/Middleware/Itinerary?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="I_ItineraryService_getCorrectAdress_InputMessage">

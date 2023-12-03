@@ -18,6 +18,7 @@ namespace CS_Server
     public static class Requester_OpenAPI
     {
         public static string OPENSTREETMAP_LINK = "https://nominatim.openstreetmap.org";
+        public static string OPENSTREETMAP_JSON_FORMAT = "&format=json";
 
         static HttpClient getNewHttpClient()
         {
@@ -31,12 +32,12 @@ namespace CS_Server
         /*
          * CONVERTIR UNE ADRESSE SIMPLE EN ADRESSE COMPLETE 
          * */
-        public static async Task<string> getCompleteAdress(string input)
+        public static async Task<string> getCompleteAdressFromString(string input)
         {
             try
             {
                 // notre cible
-                string request = OPENSTREETMAP_LINK + "/search?q=" + CorrectString(input) + "&format=json";
+                string request = OPENSTREETMAP_LINK + "/search?q=" + CorrectString(input) + OPENSTREETMAP_JSON_FORMAT;
                 using (HttpClient httpClient = getNewHttpClient())
                 {
                     Console.WriteLine(request);
@@ -59,8 +60,45 @@ namespace CS_Server
         }
 
 
+        /*
+                                    * 
+         * CONVETIR DES COORDONNEES EN ADRESSE COMPLETE
+                                    * 
+                                                            */
+
+        public static async Task<string> getCompleteAdressFromCoordonates(GeoCoordinate coordonates)
+        {
+            try
+            {
+                // notre cible
+                string request = OPENSTREETMAP_LINK + "/reverse" + "?lat=" + correctCoordonate(coordonates.Latitude) + "&lon=" + correctCoordonate(coordonates.Longitude) + OPENSTREETMAP_JSON_FORMAT;
+                using (HttpClient httpClient = getNewHttpClient())
+                {
+                    Console.WriteLine(request);
+                    // la requête
+                    using (HttpResponseMessage response = await httpClient.GetAsync(request))
+                    {
+                        using (HttpContent content = response.Content)
+                        {
+                            // récupère la réponse, il ne resterai plus qu'à désérialiser
+                            string result = await content.ReadAsStringAsync();
+                            return result;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+        }
+
 
         //Utils
         private static string CorrectString(string input){return input.Replace(" ", "%20");}
+        private static string correctCoordonate(double coord)
+        {
+            return coord.ToString().Replace(",", ".");
+        }
     }
 }

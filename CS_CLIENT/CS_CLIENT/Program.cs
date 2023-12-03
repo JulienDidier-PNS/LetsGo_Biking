@@ -1,6 +1,8 @@
 ﻿using CS_CLIENT.ItinearyService;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -14,26 +16,31 @@ namespace CS_CLIENT
 {
     internal class Client
     {
-        public static string STARTADRESS = "2 avenue pythagore";
-        public static string ENDADRESS = "IUT Nice fabron";
+        public static string STARTADRESS_NOTWORKING = "2 avenue pythagore";
+        public static string ENDADRESS_NOTWORKING = "IUT Nice fabron";
+
+        public static string STARTADRESS_WORKING = "toulouse musée des augustins";
+        public static string ENDADRESS_WORKING = "intermarché 362 rue faventines valence";
 
         static void Main(string[] args)
         {
                 string finalStart = "";
                 string finalEnd = "";
-
-                finalStart = requestStartAdress();
-                finalEnd = requestEndAdress();
+                
+                //version correcte de l'adresse
+                finalStart = requestStartAdress(STARTADRESS_WORKING);
+                finalEnd = requestEndAdress(ENDADRESS_WORKING);
 
                 Console.WriteLine("Adresse de depart : " + finalStart);
-                Console.WriteLine("Addr de destination : " + finalEnd);
-                
-                //a ce stade, nous avons des adresses correctes;
-                //on va demander l'itinéraire méthode qui renvoie string[] -> si taille = 1, alors pb (plus rapide à pied). Sinon, liste d'étapes
+                Console.WriteLine("Addresse de destination : " + finalEnd);
 
-                getItinerary(finalStart,finalEnd);
+            //a ce stade, nous avons des adresses correctes;
+            //on va demander l'itinéraire méthode qui renvoie string[] -> si taille = 1, alors pb (plus rapide à pied). Sinon, liste d'étapes
 
-                Console.WriteLine("Appuyez sur un touche pour quitter !");
+
+            showSteps(getItinerary(finalStart,finalEnd));
+
+            Console.WriteLine("Appuyez sur un touche pour quitter !");
                 Console.ReadLine();
         }
 
@@ -54,13 +61,8 @@ namespace CS_CLIENT
                 {
                     //vérification sur l'input de l'utilisateur
                     userInput = Console.ReadLine();
-                    if(int.TryParse(userInput, out _)){
-                        break; 
-                    }
-                    else
-                    {
-                        Console.WriteLine("Le choix n'est pas bon !");
-                    }
+                    if(int.TryParse(userInput, out _)){break;}
+                    else{Console.WriteLine("Le choix n'est pas bon !");}
                 }
                 userInputFinal = int.Parse(userInput);
                 //si l'input est correct, on retourne l'adresse contenue dans la case 'userInputFinal' du tableau
@@ -68,13 +70,13 @@ namespace CS_CLIENT
             }
         }
 
-        private static string requestStartAdress()
+        private static string requestStartAdress(string address)
         {
             //using (ItinearyService.I_ItineraryServiceClient client = new ItinearyService.I_ItineraryServiceClient())
             //{
             Console.WriteLine("Entrez votre adresse de départ :");
             string finalStart = "";
-            string startInput = STARTADRESS;
+            string startInput = address;
 
             ItinearyService.I_ItineraryServiceClient client = new ItinearyService.I_ItineraryServiceClient();
             client.Open();
@@ -101,12 +103,12 @@ namespace CS_CLIENT
                 
         }
 
-        private static string requestEndAdress()
+        private static string requestEndAdress(string address)
         {
             while (true)
             {
                 Console.WriteLine("Entrez votre adresse d'arrivée :");
-                string endInput = ENDADRESS;
+                string endInput = address;
                 ItinearyService.I_ItineraryServiceClient client = new ItinearyService.I_ItineraryServiceClient();
                 client.Open();
                 string[] addresses = client.getCorrectAdress(endInput);
@@ -129,13 +131,24 @@ namespace CS_CLIENT
             }
         }
 
-        private static string[] getItinerary(string start, string end)
+        private static Itinerary_OBJ getItinerary(string start, string end)
         {
             ItinearyService.I_ItineraryServiceClient client = new ItinearyService.I_ItineraryServiceClient();
             client.Open();
-            client.getItinerary(start,end);
+            Itinerary_OBJ itinerary = client.getItinerary(start,end);
             client.Close();
-            return new string[0];
+            return itinerary;
+        }
+
+        private static void showSteps(Itinerary_OBJ itinerary)
+        {
+            foreach(Itinerary_OBJ.Segment segment in itinerary.routes[0].segments)
+            {
+                foreach(Itinerary_OBJ.Step step in segment.steps)
+                {
+                    Console.WriteLine(step.instruction +" during "+ step.distance +" meters " );
+                }
+            }
 
         }
     }

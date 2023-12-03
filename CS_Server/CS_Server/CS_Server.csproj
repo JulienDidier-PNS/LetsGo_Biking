@@ -99,16 +99,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InternalSystem\RoutingSystem\Itinerary.cs" />
-    <Compile Include="InternalSystem\RoutingSystem\ItineraryConverter.cs" />
-    <Compile Include="InternalSystem\RoutingSystem\Requester_OpenRouteService.cs" />
-    <Compile Include="InternalSystem\RoutingSystem\Step.cs" />
-    <Compile Include="InternalSystem\JCDECAUX\Requester_JCdecaux.cs" />
-    <Compile Include="InternalSystem\JCDECAUX\UtilsStations.cs" />
-    <Compile Include="InternalSystem\RoutingSystem\AdressConverter.cs" />
+    <Compile Include="Exposed\Objects\Adress_OBJ.cs" />
+    <Compile Include="InternalSystem\JCDECAUX\JCDECAUX_OBJ\JCContrat.cs" />
+    <Compile Include="InternalSystem\JCDECAUX\JCDECAUX_OBJ\JCStands.cs" />
+    <Compile Include="InternalSystem\JCDECAUX\JCDECAUX_OBJ\JCStation.cs" />
+    <Compile Include="Exposed\Objects\Itinerary_OBJ.cs" />
+    <Compile Include="InternalSystem\RoutingSystem\ItineraryCalculator.cs" />
+    <Compile Include="InternalSystem\OPENROUTESERVICE\Requester_OpenRouteService.cs" />
+    <Compile Include="InternalSystem\JCDECAUX\API\Requester_JCdecaux.cs" />
+    <Compile Include="InternalSystem\JCDECAUX\JCDecaux_Service.cs" />
+    <Compile Include="InternalSystem\RoutingSystem\AdressService.cs" />
     <Compile Include="InternalSystem\OPENAPI\Requester_OpenAPI.cs" />
-    <Compile Include="ExposeService\I_ItineraryService.cs" />
-    <Compile Include="ExposeService\ItineraryService.cs" />
+    <Compile Include="Exposed\Services\I_ItineraryService.cs" />
+    <Compile Include="Exposed\Services\ItineraryService.cs" />
+    <Compile Include="InternalSystem\RoutingSystem\MEANS_TRANSPORT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
     <Compile Include="Utils\Position.cs" />

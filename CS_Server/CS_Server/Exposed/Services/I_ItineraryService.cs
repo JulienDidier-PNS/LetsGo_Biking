@@ -26,6 +26,6 @@ namespace CS_Server
         GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress);
 
         [OperationContract]
-        void getItinerary(string start, string end);
+        Itinerary_OBJ getItinerary(string start, string end);
     }
 }

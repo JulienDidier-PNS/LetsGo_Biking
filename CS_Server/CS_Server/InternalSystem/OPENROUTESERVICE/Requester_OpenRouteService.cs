@@ -19,6 +19,11 @@ namespace CS_Server.InternalSystem.RoutingSystem
         private static string OPENROUTESERVICE_LINK = "https://api.openrouteservice.org";
         private static string OPENROUTESERVICE_VERSION = "v2";
 
+        private static string OPENROUTESERVICE_FOOT_WALKING = "foot-walking";
+        private static string OPENROUTESERVICE_CAR = "driving-car";
+        private static string OPENROUTESERVICE_CYCLING_ROAD = "cycling-road";
+        private static string OPENROUTESERVICE_REQUEST_FORMAT_RESULT = "json";
+
         static HttpClient getNewHttpClient()
         {
             HttpClient httpClientFinal = new HttpClient();
@@ -27,9 +32,8 @@ namespace CS_Server.InternalSystem.RoutingSystem
             return httpClientFinal;
         }
 
-        public static async Task<string> getItinerary(List<GeoCoordinate> coordonates)
+        public static async Task<string> getItinerary(List<GeoCoordinate> coordonates, MEANS_TRANSPORT transportType)
         {
-
             string authorization = OPENROUTESERVICE_API_KEY;
             string responseContent = "";
             string coords = "{\"coordinates\":[";
@@ -47,7 +51,12 @@ namespace CS_Server.InternalSystem.RoutingSystem
 
             Byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(coords);
 
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api.openrouteservice.org/v2/directions/driving-car/geojson");
+            //PAR DEFAUT -> REQUETE EN VELO
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("https://api.openrouteservice.org/v2/directions/" + OPENROUTESERVICE_CYCLING_ROAD + "/" + OPENROUTESERVICE_REQUEST_FORMAT_RESULT);
+            if (transportType.Equals(MEANS_TRANSPORT.CAR)){request = (HttpWebRequest)HttpWebRequest.Create("https://api.openrouteservice.org/v2/directions/" + OPENROUTESERVICE_CAR + "/" + OPENROUTESERVICE_REQUEST_FORMAT_RESULT);}
+            if (transportType.Equals(MEANS_TRANSPORT.BICYCLE)){request = (HttpWebRequest)HttpWebRequest.Create("https://api.openrouteservice.org/v2/directions/" + OPENROUTESERVICE_CYCLING_ROAD + "/" + OPENROUTESERVICE_REQUEST_FORMAT_RESULT);}
+            if (transportType.Equals(MEANS_TRANSPORT.PEDESTRIANS)){request = (HttpWebRequest)HttpWebRequest.Create("https://api.openrouteservice.org/v2/directions/" + OPENROUTESERVICE_FOOT_WALKING + "/" + OPENROUTESERVICE_REQUEST_FORMAT_RESULT);}
+
             request.Method = "POST";
 
             request.Accept = "application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8";
@@ -60,6 +69,7 @@ namespace CS_Server.InternalSystem.RoutingSystem
 
             using (System.Net.HttpWebResponse response = request.GetResponse() as System.Net.HttpWebResponse)
             {
+                Console.WriteLine(request.Address.ToString());
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
                    return reader.ReadToEnd();

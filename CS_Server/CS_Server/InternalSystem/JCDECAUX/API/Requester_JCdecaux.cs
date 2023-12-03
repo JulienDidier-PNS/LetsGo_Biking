@@ -37,8 +37,7 @@ namespace CS_Server.InternalSystem.Requester
                         using (HttpContent content = response.Content)
                         {
                             // récupère la réponse, il ne resterai plus qu'à désérialiser
-                            string result = await content.ReadAsStringAsync();
-                            return result;
+                            return await content.ReadAsStringAsync();
                         }
                     }
                 }
@@ -46,6 +45,25 @@ namespace CS_Server.InternalSystem.Requester
             catch (Exception ex)
             {
                 throw new Exception(ex.ToString());
+            }
+        }
+
+        public static async Task<string> getAllStationFromContract(string contract_name)
+        {
+            string request = JCDECAUX_LINK + "/stations?contract=" + contract_name + "&apiKey=" + JCDECAUX_APIKEY;
+            using (HttpClient client = getNewHttpClient())
+            {
+                Console.WriteLine(request);
+                // la requête
+                using (HttpResponseMessage response = await client.GetAsync(request))
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        // récupère la réponse, il ne resterai plus qu'à désérialiser
+                        string result = await content.ReadAsStringAsync();
+                        return result;
+                    }
+                }
             }
         }
 
