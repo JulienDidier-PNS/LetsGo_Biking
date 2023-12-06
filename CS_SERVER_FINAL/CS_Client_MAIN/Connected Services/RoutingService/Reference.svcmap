@@ -25,6 +25,7 @@
     <MetadataFile FileName="RoutingServer.xsd" MetadataType="Schema" ID="5b1d3c2f-2c25-4860-b0b3-2005f2b047bf" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd2" />
     <MetadataFile FileName="RoutingServer1.xsd" MetadataType="Schema" ID="0f7b50e5-8218-44aa-ad82-a2d098eb6017" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd3" />
     <MetadataFile FileName="RoutingServer2.xsd" MetadataType="Schema" ID="362bc8d7-6a9c-4cb2-af23-d725da4c9f1a" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd4" />
+    <MetadataFile FileName="RoutingServer5.xsd" MetadataType="Schema" ID="93e91288-46dd-4f00-987a-ab3ae2eed370" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd5" />
     <MetadataFile FileName="ItineraryService.wsdl" MetadataType="Wsdl" ID="bd9a0c29-2b1c-4734-8e04-611a5c93841d" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?wsdl" />
     <MetadataFile FileName="RoutingServer.disco" MetadataType="Disco" ID="cf5731dd-9843-4799-9121-263e361bc152" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?disco" />
     <MetadataFile FileName="RoutingServer3.xsd" MetadataType="Schema" ID="87199a4f-c4f2-44cc-b879-3dfe0196194c" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd0" />

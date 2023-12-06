@@ -19,20 +19,20 @@ namespace CS_Client_MAIN
             Console.ReadLine();
 
         }
-        private static Itinerary_OBJ getItinerary(string start, string end)
+        private static Itinerary getItinerary(string start, string end)
         {
             I_ItineraryServiceClient client = new I_ItineraryServiceClient();
             client.Open();
-            Itinerary_OBJ itinerary = client.getItinerary(start, end);
+            Itinerary itinerary = client.getItinerary(start, end);
             client.Close();
             return itinerary;
         }
 
-        private static void showSteps(Itinerary_OBJ itinerary)
+        private static void showSteps(Itinerary itinerary)
         {
-            foreach (Itinerary_OBJ.Segment segment in itinerary.routes[0].segments)
+            foreach (Segment segment in itinerary.routes[0].segments)
             {
-                foreach (Itinerary_OBJ.Step step in segment.steps)
+                foreach (Step step in segment.steps)
                 {
                     Console.WriteLine(step.instruction + " during " + step.distance + " meters ");
                 }

@@ -58,7 +58,7 @@
     <None Include="Connected Services\RoutingService\CS_Client_MAIN.RoutingService.GeoCoordinate.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\RoutingService\CS_Client_MAIN.RoutingService.Itinerary_OBJ.datasource">
+    <None Include="Connected Services\RoutingService\CS_Client_MAIN.RoutingService.Itinerary.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\RoutingService\ItineraryService.wsdl" />
@@ -75,6 +75,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\RoutingService\RoutingServer4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RoutingService\RoutingServer5.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>

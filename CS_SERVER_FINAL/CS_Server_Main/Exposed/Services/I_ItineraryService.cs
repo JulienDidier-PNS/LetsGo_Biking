@@ -21,7 +21,7 @@ namespace CS_Server_Main.Exposed.Services
         GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress);
 
         [OperationContract]
-        Itinerary_OBJ getItinerary(string start, string end);
+        Itinerary getItinerary(string start, string end);
 
     }
 }

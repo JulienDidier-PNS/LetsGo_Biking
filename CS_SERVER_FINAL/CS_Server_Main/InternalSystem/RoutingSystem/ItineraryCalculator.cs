@@ -17,7 +17,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
         /**
          * CHERCHE L'ITINERAIRE
          * */
-        public static Itinerary_OBJ getItinerary(Adress_OBJ start, Adress_OBJ end)
+        public static Itinerary getItinerary(Adress_OBJ start, Adress_OBJ end)
         {
             //REQUETE PROXY/CACHE
             I_JCDecauxClient jcClient = new I_JCDecauxClient();
@@ -37,7 +37,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
             Console.WriteLine("Durée du trajet à pied : " + durationPEDESTRIAN.ToString("d' jours 'h'h 'm'm 's's'"));
             Console.WriteLine("Durée du trajet à vélo : " + durationBICYCLE.ToString("d' jours 'h'h 'm'm 's's'"));
 
-            Itinerary_OBJ finalItinerary = new Itinerary_OBJ();
+            Itinerary finalItinerary = new Itinerary();
             if (durationBICYCLE < durationPEDESTRIAN)
             {
                 //SI OUI,RECHERCHE LES STATIONS LES PLUS PROCHES DU POINT DE DEPART ET D'ARRIVEE
@@ -60,7 +60,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
 
                 var jsonItineraryTask = Requester_OpenRouteService.getItinerary(pausePoints, MEANS_TRANSPORT.BICYCLE);
                 string jsonItineraryResponse = jsonItineraryTask.Result;
-                finalItinerary = JsonConvert.DeserializeObject<Itinerary_OBJ>(jsonItineraryResponse);
+                finalItinerary = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponse);
                 return finalItinerary;
             }
             else
@@ -72,7 +72,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
 
                 var jsonItineraryTask = Requester_OpenRouteService.getItinerary(pausePoints, MEANS_TRANSPORT.PEDESTRIANS);
                 string jsonItineraryResponse = jsonItineraryTask.Result;
-                finalItinerary = JsonConvert.DeserializeObject<Itinerary_OBJ>(jsonItineraryResponse);
+                finalItinerary = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponse);
 
             }
             return finalItinerary;
@@ -94,7 +94,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
             itineraryJSONTask.Wait();
             var itineraryJSONString = itineraryJSONTask.Result;
 
-            Itinerary_OBJ itinerary = JsonConvert.DeserializeObject<Itinerary_OBJ>(itineraryJSONString);
+            Itinerary itinerary = JsonConvert.DeserializeObject<Itinerary>(itineraryJSONString);
             double trajectTotalDuration = itinerary.routes[0].summary.duration;
             return TimeSpan.FromSeconds(trajectTotalDuration);
         }

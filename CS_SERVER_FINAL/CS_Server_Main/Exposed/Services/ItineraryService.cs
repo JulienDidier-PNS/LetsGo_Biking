@@ -32,7 +32,7 @@ namespace CS_Server_Main.Exposed.Services
             return AdressService.correctAdressToGeoCoordonate(uniqAdress).Result;
         }
 
-        public Itinerary_OBJ getItinerary(string start, string end)
+        public Itinerary getItinerary(string start, string end)
         {
             //CREATION D'OBJET ADRESSE POUR NE PLUS APPELER LES API PAR LA SUITE
             Adress_OBJ startAdress = AdressService.adresseGenerator(start);

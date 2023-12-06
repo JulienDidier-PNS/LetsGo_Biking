@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Device.Location" />
       <xsd:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/" />
+      <xsd:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main.Exposed.Objects" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="I_ItineraryService_getCorrectAdress_InputMessage">
@@ -27,12 +28,6 @@
   <wsdl:message name="I_ItineraryService_getItinerary_OutputMessage">
     <wsdl:part name="parameters" element="tns:getItineraryResponse" />
   </wsdl:message>
-  <wsdl:message name="I_ItineraryService_printTest_InputMessage">
-    <wsdl:part name="parameters" element="tns:printTest" />
-  </wsdl:message>
-  <wsdl:message name="I_ItineraryService_printTest_OutputMessage">
-    <wsdl:part name="parameters" element="tns:printTestResponse" />
-  </wsdl:message>
   <wsdl:portType name="I_ItineraryService">
     <wsdl:operation name="getCorrectAdress">
       <wsdl:input wsaw:Action="http://tempuri.org/I_ItineraryService/getCorrectAdress" message="tns:I_ItineraryService_getCorrectAdress_InputMessage" />
@@ -45,10 +40,6 @@
     <wsdl:operation name="getItinerary">
       <wsdl:input wsaw:Action="http://tempuri.org/I_ItineraryService/getItinerary" message="tns:I_ItineraryService_getItinerary_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/I_ItineraryService/getItineraryResponse" message="tns:I_ItineraryService_getItinerary_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="printTest">
-      <wsdl:input wsaw:Action="http://tempuri.org/I_ItineraryService/printTest" message="tns:I_ItineraryService_printTest_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/I_ItineraryService/printTestResponse" message="tns:I_ItineraryService_printTest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_I_ItineraryService" type="tns:I_ItineraryService">
@@ -73,15 +64,6 @@
     </wsdl:operation>
     <wsdl:operation name="getItinerary">
       <soap:operation soapAction="http://tempuri.org/I_ItineraryService/getItinerary" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="printTest">
-      <soap:operation soapAction="http://tempuri.org/I_ItineraryService/printTest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

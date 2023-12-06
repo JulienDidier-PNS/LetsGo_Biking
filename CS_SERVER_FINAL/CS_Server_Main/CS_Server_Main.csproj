@@ -82,8 +82,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Exposed\Objects\Engine.cs" />
+    <Compile Include="Exposed\Objects\Metadata.cs" />
+    <Compile Include="Exposed\Objects\Query.cs" />
+    <Compile Include="Exposed\Objects\Route.cs" />
+    <Compile Include="Exposed\Objects\Segment.cs" />
+    <Compile Include="Exposed\Objects\Step.cs" />
+    <Compile Include="Exposed\Objects\Summeray.cs" />
     <Compile Include="InternalSystem\RoutingSystem\Adress_OBJ.cs" />
-    <Compile Include="Exposed\Objects\Itinerary_OBJ.cs" />
+    <Compile Include="Exposed\Objects\Itinerary.cs" />
     <Compile Include="Exposed\Services\ItineraryService.cs" />
     <Compile Include="Exposed\Services\I_ItineraryService.cs" />
     <Compile Include="InternalSystem\OPENAPI\Requester_OpenAPI.cs" />

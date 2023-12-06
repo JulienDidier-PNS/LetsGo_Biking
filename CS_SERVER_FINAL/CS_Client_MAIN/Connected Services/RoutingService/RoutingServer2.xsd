@@ -1,93 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="Itinerary_OBJ">
+  <xs:import schemaLocation="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main.Exposed.Objects" />
+  <xs:complexType name="Itinerary">
     <xs:sequence>
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="bbox" nillable="true" type="q1:ArrayOfdouble" />
-      <xs:element minOccurs="0" name="metadata" nillable="true" type="tns:Itinerary_OBJ.Metadata" />
-      <xs:element minOccurs="0" name="routes" nillable="true" type="tns:ArrayOfItinerary_OBJ.Route" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CS_Server_Main.Exposed.Objects" minOccurs="0" name="metadata" nillable="true" type="q2:Metadata" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CS_Server_Main.Exposed.Objects" minOccurs="0" name="routes" nillable="true" type="q3:ArrayOfRoute" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Itinerary_OBJ" nillable="true" type="tns:Itinerary_OBJ" />
-  <xs:complexType name="Itinerary_OBJ.Metadata">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="attribution" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="engine" nillable="true" type="tns:Itinerary_OBJ.Engine" />
-      <xs:element minOccurs="0" name="query" nillable="true" type="tns:Itinerary_OBJ.Query" />
-      <xs:element minOccurs="0" name="service" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="timestamp" type="xs:long" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Metadata" nillable="true" type="tns:Itinerary_OBJ.Metadata" />
-  <xs:complexType name="Itinerary_OBJ.Engine">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="build_date" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="graph_date" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="version" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Engine" nillable="true" type="tns:Itinerary_OBJ.Engine" />
-  <xs:complexType name="Itinerary_OBJ.Query">
-    <xs:sequence>
-      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="coordinates" nillable="true" type="q2:ArrayOfArrayOfdouble" />
-      <xs:element minOccurs="0" name="format" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="profile" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Query" nillable="true" type="tns:Itinerary_OBJ.Query" />
-  <xs:complexType name="ArrayOfItinerary_OBJ.Route">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Itinerary_OBJ.Route" nillable="true" type="tns:Itinerary_OBJ.Route" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfItinerary_OBJ.Route" nillable="true" type="tns:ArrayOfItinerary_OBJ.Route" />
-  <xs:complexType name="Itinerary_OBJ.Route">
-    <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="bbox" nillable="true" type="q3:ArrayOfdouble" />
-      <xs:element minOccurs="0" name="geometry" nillable="true" type="xs:string" />
-      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="legs" nillable="true" type="q4:ArrayOfanyType" />
-      <xs:element minOccurs="0" name="segments" nillable="true" type="tns:ArrayOfItinerary_OBJ.Segment" />
-      <xs:element minOccurs="0" name="summary" nillable="true" type="tns:Itinerary_OBJ.Summary" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="way_points" nillable="true" type="q5:ArrayOfint" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Route" nillable="true" type="tns:Itinerary_OBJ.Route" />
-  <xs:complexType name="ArrayOfItinerary_OBJ.Segment">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Itinerary_OBJ.Segment" nillable="true" type="tns:Itinerary_OBJ.Segment" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfItinerary_OBJ.Segment" nillable="true" type="tns:ArrayOfItinerary_OBJ.Segment" />
-  <xs:complexType name="Itinerary_OBJ.Segment">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="distance" type="xs:double" />
-      <xs:element minOccurs="0" name="duration" type="xs:double" />
-      <xs:element minOccurs="0" name="steps" nillable="true" type="tns:ArrayOfItinerary_OBJ.Step" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Segment" nillable="true" type="tns:Itinerary_OBJ.Segment" />
-  <xs:complexType name="ArrayOfItinerary_OBJ.Step">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Itinerary_OBJ.Step" nillable="true" type="tns:Itinerary_OBJ.Step" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfItinerary_OBJ.Step" nillable="true" type="tns:ArrayOfItinerary_OBJ.Step" />
-  <xs:complexType name="Itinerary_OBJ.Step">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="distance" type="xs:double" />
-      <xs:element minOccurs="0" name="duration" type="xs:double" />
-      <xs:element minOccurs="0" name="instruction" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="type" type="xs:int" />
-      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="way_points" nillable="true" type="q6:ArrayOfint" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Step" nillable="true" type="tns:Itinerary_OBJ.Step" />
-  <xs:complexType name="Itinerary_OBJ.Summary">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="distance" type="xs:double" />
-      <xs:element minOccurs="0" name="duration" type="xs:double" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Itinerary_OBJ.Summary" nillable="true" type="tns:Itinerary_OBJ.Summary" />
+  <xs:element name="Itinerary" nillable="true" type="tns:Itinerary" />
 </xs:schema>
