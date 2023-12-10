@@ -38,7 +38,28 @@ public class Client_Main {
     public static final String PEDESTRIAN = "PEDESTRIAN";
 
     public static void main(String[] args) throws Exception {
-        boolean activeMQOK = true;
+        boolean activeMQOK = false;
+        int userInputFinal = -1;
+        while (true) {
+            System.out.println("Utilisation d'activeMQ ?\n1: oui\n2: non");
+            try {
+                String userInput = new Scanner(System.in).nextLine();
+                userInputFinal = Integer.parseInt(userInput);
+                if(userInputFinal<1 || userInputFinal>2){throw new Exception();}
+                break;
+            } catch (Exception e) {
+                System.out.println("Mauvaise entrée !");
+            }
+        }
+
+        if(userInputFinal==1){
+            activeMQOK=true;
+        }
+        else{
+            activeMQOK=false;
+        }
+
+
         Places finalStart = null;
         Places finalEnd = null;
         while (finalStart == null) {
@@ -58,7 +79,6 @@ public class Client_Main {
 
         showTrajectInformation(finalStart, finalEnd, idItinerary);
         GeoCoordinate currentPosition = new GeoCoordinate();
-        int userInputFinal = -1;
         if (activeMQOK) {
             boolean trajectFinish = false;
             //ON EMULE LA POSITION ACTUELLE
@@ -101,7 +121,6 @@ public class Client_Main {
                     if (e.getMessage().contains(QUEUE_EMPTY_EXCEPTION)) {
                         trajectFinish = true;
                         System.out.println("TRAJET TERMINE !!");
-                        return ;
                     }
                     if (e.getMessage().contains("org.apache.activemq.ConnectionFailedException")) {
                         System.out.println("Connexion à actievMQ intérompue ! \n Continuation en lien direct avec le serveur");
@@ -116,7 +135,6 @@ public class Client_Main {
             }
             System.out.println("Appuyez sur un touche pour quitter !");
             new Scanner(System.in).nextLine();
-            return;
         }
         else {
             boolean trajectOver = false;
@@ -157,7 +175,6 @@ public class Client_Main {
                 }
             }
             System.out.println("TRAJET TERMINE !!");
-            return ;
         }
     }
 

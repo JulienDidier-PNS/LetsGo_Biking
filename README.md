@@ -3,45 +3,75 @@
 ## How to launch the project 🚀 ?
 
 ### Content
-    /apache-activemq-5.17.0
     /BINAIRES_FINAUX
-    /CODES
+        /apache-active-mq-5.7.0
+            /w64
+                apache.bat
+        /CS_PROXY_CACHE    
+            ...
+            CS_PROXY_MAIN.exe
+        /CS_SERVER
+            ...
+            CS_SERVER.exe
+        start.ps1              
+        /Java_Client
+            ...
         ...
-        autoload.php
-    /web
-    composer.json
+
+### Featrures Needed
+**Java 17** 🍵/ **powershell**
+### Running
+(go in BINAIRES_FINAUX)
+Open shell (as administrator)
+And run :
+```
+./start.ps1
+```
+#### It would start :
+1. ProxyCache
+2. Routing Server
+3. ActiveMQ
+4. Java CLIENT 
 
 
-## Résumé de l'avancée 🌐
+## Current project status 🌐
 
-Toutes les parties sont couvertes (hormis la carte)
-- ActiveMQ fonctionnel
-    - besoin d'un ID d'itinéraire (correspondant à l'ID de la queue)
-    - renvoie par vague de 10 étapes
+All parts are covered (except the map 📍)
+- ActiveMQ ✅
+    - need the itineraryID (wich correspond to the queue ID) to get the instrcutions steps
+    - the client get 10 messages per pull
 
-- Proxy/Cache Fonctionnel
-    - Proxy :
-        - Fais les requêtes JC_Decaux
-    - Cache :
-        - Cache créé pour ce projet (n'est pas un cache générique)
+- Proxy/Cache ✅
+- Routing Server ✅
 
-## Proxy-Cache :
-Création d'un "JCDecaux_service" qui contient les données en cache.
--  Les contrats 📜 si la dernière update date de +1 semaine
-- Il update les contrats à chaques requête </br> *(je suis partit du principe qu'il faut avoir l'information en temps réel dès que l'utilisateur veut avoir une information)*
+## PROXY-CACHE :
+Creation of an service named "JCDecaux_service" wich contains all values in the cache.
+-  Contracts are update📜 if the last update is more than 1 week
+- The service update stations at every request </br> *(i assumed that the client need to get the real time information when he wants to get an available sattion)*
+
+- Cache is not a generic cache
 
 ---
 
-## Serveur de routing
-### Méthode de routing 📈📍:
+## ROUTING SERVER
+### Routing method 📈📍:
 
-- Si le trajet est plus cours en vélo en terme de temps
-    - Marche 🚶
-    - Prochaine station dispo pour prendre un vélo 🏪
-    - trajet à vélo 🚲
-    - Prochaine station dispo pour poser le vélo 🏪
-    - Marche jusqu'à l'arrivée 🚶
+-if the itinerary is shorter in time (see instruction below)
+    - Walking🚶
+    - next available station with bike 🏪
+    - biking itinerary 🚲
+    - next available station with bike🏪
+    - walkking 🚶
+
+**In default, we send the shorter itinerary in time !**
 ---
 
-### 
+## JAVA CLIENT
+The user can ask between 4 options :
+1. Walking itinerary
+2. Bicycle itinerary
+3. Shorter itinerary in time
+4. Shorter itinierary in distance 
+
+The user can use ActiveMQ or not
 

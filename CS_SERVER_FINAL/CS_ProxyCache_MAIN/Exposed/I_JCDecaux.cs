@@ -21,7 +21,7 @@ namespace CS_ProxyCache_MAIN.Exposed
         [OperationContract]
         JCStation getNearestStationFromPosition(GeoCoordinate coordinates);
         [OperationContract]
-        JCStation getNearestStationWithBikesAvailableFromPositionInSpecificContract (GeoCoordinate coordinates, JCContrat contrat);
+        JCStation getNearestStationWithBikesAvailableFromPositionInSpecificContract(GeoCoordinate coordinates, JCContrat contrat);
         [OperationContract]
         JCStation getNearestStationWithBikesAvailableFromPosition(GeoCoordinate coordinates);
         [OperationContract]

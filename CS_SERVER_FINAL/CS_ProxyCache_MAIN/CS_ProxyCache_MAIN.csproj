@@ -108,6 +108,7 @@
     <Compile Include="Exposed\Objects\JCStation.cs" />
     <Compile Include="JCDECAUX\API\Requester_JCdecaux.cs" />
     <Compile Include="Exposed\JCDecaux_Service.cs" />
+    <Compile Include="JCDecaux_Cache.cs" />
     <Compile Include="OPENROUTESERVICE\MEANS_TRANSPORT.cs" />
     <Compile Include="OPENROUTESERVICE\Requester_OpenRouteService.cs" />
     <Compile Include="Program.cs" />
