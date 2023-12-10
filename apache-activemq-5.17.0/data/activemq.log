@@ -1,0 +1,265 @@
+2023-12-08 21:16:40,713 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\..\data\kahadb] | org.apache.activemq.broker.BrokerService | main
+2023-12-08 21:16:40,950 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | main
+2023-12-08 21:16:41,094 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-22099-1702066600959-0:1) is starting | org.apache.activemq.broker.BrokerService | main
+2023-12-08 21:16:41,110 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2023-12-08 21:16:41,115 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | main
+2023-12-08 21:16:41,119 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2023-12-08 21:16:41,119 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | main
+2023-12-08 21:16:41,120 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2023-12-08 21:16:41,121 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | main
+2023-12-08 21:16:41,123 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | main
+2023-12-08 21:16:41,123 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | main
+2023-12-08 21:16:41,128 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | main
+2023-12-08 21:16:41,174 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | main
+2023-12-08 21:16:41,224 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@abff8b7{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | main
+2023-12-08 21:16:41,302 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | main
+2023-12-08 21:16:41,302 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | main
+2023-12-08 21:16:41,302 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-22099-1702066600959-0:1) started | org.apache.activemq.broker.BrokerService | main
+2023-12-08 21:16:41,303 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | main
+2023-12-08 21:16:42,009 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | main
+2023-12-08 21:16:42,010 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | main
+2023-12-09 13:15:22,778 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win32\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 13:15:22,862 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-09 13:15:22,866 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 13:15:22,872 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-09 13:15:23,029 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win32\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 13:15:23,162 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-10368-1702124123037-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 13:15:23,175 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,175 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 13:15:23,179 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,179 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 13:15:23,182 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,182 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 13:15:23,185 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,186 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 13:15:23,191 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,254 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 13:15:23,326 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@1b863a87{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 13:15:23,450 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 13:15:23,450 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 13:15:23,451 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-10368-1702124123037-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 13:15:23,451 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 13:15:24,156 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 13:15:24,156 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 16:18:58,960 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 16:18:59,046 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-09 16:18:59,049 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 16:18:59,055 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovered pageFile free list of size: 0 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-09 16:18:59,196 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 16:18:59,327 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-13648-1702135139205-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 16:18:59,340 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,340 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 16:18:59,343 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,343 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 16:18:59,346 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,346 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 16:18:59,348 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,348 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 16:18:59,353 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,406 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 16:18:59,472 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@690aaed4{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 16:18:59,572 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 16:18:59,572 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 16:18:59,572 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-13648-1702135139205-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 16:18:59,572 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 16:19:00,284 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 16:19:00,284 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 16:22:24,677 | INFO  | Connector vm://localhost started | org.apache.activemq.broker.TransportConnector | qtp1511973881-72
+2023-12-09 16:53:49,725 | INFO  | Connector vm://localhost stopped | org.apache.activemq.broker.TransportConnector | qtp1511973881-147
+2023-12-09 16:53:58,897 | INFO  | Connector vm://localhost started | org.apache.activemq.broker.TransportConnector | qtp1511973881-52
+2023-12-09 17:25:00,192 | INFO  | Connector vm://localhost stopped | org.apache.activemq.broker.TransportConnector | Session-HouseKeeper-39f9ff6a-1
+2023-12-09 18:33:26,930 | INFO  | Connector vm://localhost started | org.apache.activemq.broker.TransportConnector | qtp1511973881-608
+2023-12-09 19:37:00,227 | INFO  | Connector vm://localhost stopped | org.apache.activemq.broker.TransportConnector | Session-HouseKeeper-39f9ff6a-1
+2023-12-09 19:51:03,754 | WARN  | Transport Connection to: tcp://169.254.123.238:21965 failed: Channel was inactive for too (>30000) long: tcp://169.254.123.238:21965 | org.apache.activemq.broker.TransportConnection.Transport | ActiveMQ InactivityMonitor Worker 0
+2023-12-09 22:17:16,652 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-13648-1702135139205-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-20
+2023-12-09 22:17:16,653 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-20
+2023-12-09 22:17:16,653 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-20
+2023-12-09 22:17:16,654 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-20
+2023-12-09 22:17:16,654 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-20
+2023-12-09 22:17:16,663 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-20
+2023-12-09 22:17:16,665 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-20
+2023-12-09 22:17:16,665 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-20
+2023-12-09 22:17:16,665 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-20
+2023-12-09 22:17:16,665 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-20
+2023-12-09 22:17:16,676 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-13648-1702135139205-0:1) uptime 5 hours 58 minutes | org.apache.activemq.broker.BrokerService | Thread-20
+2023-12-09 22:17:16,676 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-13648-1702135139205-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-20
+2023-12-09 22:37:54,837 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:37:54,928 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:37:54,949 | INFO  | Recovering from the journal @1:1810 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:37:54,995 | INFO  | Recovery replayed 86 operations from the journal in 0.058 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:37:55,162 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 22:37:55,307 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24400-1702157875171-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:37:55,380 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,380 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:37:55,383 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,384 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:37:55,388 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,388 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:37:55,390 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,391 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:37:55,395 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,459 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:37:55,514 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@5d73ecc5{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 22:37:55,618 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 22:37:55,618 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:37:55,618 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24400-1702157875171-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:37:55,618 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:37:56,484 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:37:56,486 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:41:30,269 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24400-1702157875171-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-27
+2023-12-09 22:41:30,270 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-27
+2023-12-09 22:41:30,271 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-27
+2023-12-09 22:41:30,271 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-27
+2023-12-09 22:41:30,271 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-27
+2023-12-09 22:41:30,277 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-27
+2023-12-09 22:41:30,281 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-27
+2023-12-09 22:41:30,282 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-27
+2023-12-09 22:41:30,282 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-27
+2023-12-09 22:41:30,282 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-27
+2023-12-09 22:41:30,291 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24400-1702157875171-0:1) uptime 3 minutes | org.apache.activemq.broker.BrokerService | Thread-27
+2023-12-09 22:41:30,291 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24400-1702157875171-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-27
+2023-12-09 22:42:34,396 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:42:34,472 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:42:34,625 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 22:42:34,757 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24513-1702158154633-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:42:34,846 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,846 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:42:34,850 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,850 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:42:34,853 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,853 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:42:34,857 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,858 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:42:34,864 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,921 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:42:34,993 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@714988ec{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 22:42:35,075 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 22:42:35,075 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:42:35,075 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24513-1702158154633-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:42:35,075 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:42:35,632 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:42:35,632 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:43:06,329 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24513-1702158154633-0:1) is shutting down | org.apache.activemq.broker.BrokerService | Thread-30
+2023-12-09 22:43:06,330 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | Thread-30
+2023-12-09 22:43:06,330 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | Thread-30
+2023-12-09 22:43:06,330 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | Thread-30
+2023-12-09 22:43:06,330 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | Thread-30
+2023-12-09 22:43:06,335 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | Thread-30
+2023-12-09 22:43:06,338 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | Thread-30
+2023-12-09 22:43:06,338 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-30
+2023-12-09 22:43:06,338 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | Thread-30
+2023-12-09 22:43:06,338 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | Thread-30
+2023-12-09 22:43:06,346 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24513-1702158154633-0:1) uptime 31.963 seconds | org.apache.activemq.broker.BrokerService | Thread-30
+2023-12-09 22:43:06,346 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24513-1702158154633-0:1) is shutdown | org.apache.activemq.broker.BrokerService | Thread-30
+2023-12-09 22:45:48,137 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:45:48,211 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:45:48,361 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 22:45:48,505 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24556-1702158348370-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:45:48,581 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,581 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:45:48,583 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,584 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:45:48,587 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,587 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:45:48,590 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,590 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:45:48,593 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,648 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:45:48,702 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@2b013e5{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 22:45:48,770 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 22:45:48,770 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:45:48,770 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24556-1702158348370-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:45:48,771 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:45:49,305 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:45:49,305 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:46:17,173 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24556-1702158348370-0:1) is shutting down | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,175 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,175 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,176 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,176 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,181 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,183 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,183 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,183 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,183 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,197 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24556-1702158348370-0:1) uptime 29.071 seconds | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 22:46:17,198 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24556-1702158348370-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 22:46:45,018 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:46:45,099 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 22:46:45,262 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 22:46:45,403 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24581-1702158405271-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:46:45,472 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,472 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:46:45,474 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,474 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:46:45,476 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,477 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:46:45,480 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,480 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:46:45,484 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,544 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 22:46:45,605 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@7679b0fc{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 22:46:45,694 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 22:46:45,695 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 22:46:45,695 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24581-1702158405271-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:46:45,695 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 22:46:46,273 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:46:46,273 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 22:47:17,286 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24581-1702158405271-0:1) is shutting down | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,287 | INFO  | Connector openwire stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,287 | INFO  | Connector amqp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,288 | INFO  | Connector stomp stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,288 | INFO  | Connector mqtt stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,295 | INFO  | Connector ws stopped | org.apache.activemq.broker.TransportConnector | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,297 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] stopped | org.apache.activemq.store.kahadb.plist.PListStoreImpl | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,297 | INFO  | Stopping async queue tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,297 | INFO  | Stopping async topic tasks | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,297 | INFO  | Stopped KahaDB | org.apache.activemq.store.kahadb.KahaDBStore | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,308 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24581-1702158405271-0:1) uptime 32.300 seconds | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 22:47:17,308 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-24581-1702158405271-0:1) is shutdown | org.apache.activemq.broker.BrokerService | ActiveMQ ShutdownHook
+2023-12-09 23:53:05,603 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 23:53:05,682 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-09 23:53:05,832 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-09 23:53:05,968 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-25137-1702162385840-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 23:53:06,041 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,041 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 23:53:06,044 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,044 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 23:53:06,046 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,046 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 23:53:06,049 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,049 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 23:53:06,054 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,112 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-09 23:53:06,173 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@6cb1d2c8{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-09 23:53:06,249 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-09 23:53:06,250 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-09 23:53:06,250 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-25137-1702162385840-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 23:53:06,250 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-09 23:53:06,806 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-09 23:53:06,807 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-10 13:00:53,891 | INFO  | Using Persistence Adapter: KahaDBPersistenceAdapter[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\kahadb] | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-10 13:00:53,982 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovering pageFile free list due to prior unclean shutdown.. | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-10 13:00:53,986 | INFO  | KahaDB is version 7 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-10 13:00:54,006 | INFO  | Recovering from the journal @1:12167 | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-10 13:00:54,007 | INFO  | Page File: ..\..\data\kahadb\db.data. Recovered pageFile free list of size: 308 | org.apache.activemq.store.kahadb.disk.page.PageFile | KahaDB Index Free Page Recovery
+2023-12-10 13:00:54,022 | INFO  | Recovery replayed 16 operations from the journal in 0.028 seconds. | org.apache.activemq.store.kahadb.MessageDatabase | WrapperSimpleAppMain
+2023-12-10 13:00:54,165 | INFO  | PListStore:[C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\apache-activemq-5.17.0\bin\win64\..\..\data\localhost\tmp_storage] started | org.apache.activemq.store.kahadb.plist.PListStoreImpl | WrapperSimpleAppMain
+2023-12-10 13:00:54,299 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-21097-1702209654173-0:1) is starting | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-10 13:00:54,358 | INFO  | Listening for connections at: tcp://LEGION-JULIEN:61616?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,358 | INFO  | Connector openwire started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-10 13:00:54,362 | INFO  | Listening for connections at: amqp://LEGION-JULIEN:5672?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,362 | INFO  | Connector amqp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-10 13:00:54,365 | INFO  | Listening for connections at: stomp://LEGION-JULIEN:61613?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,365 | INFO  | Connector stomp started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-10 13:00:54,368 | INFO  | Listening for connections at: mqtt://LEGION-JULIEN:1883?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.TransportServerThreadSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,368 | INFO  | Connector mqtt started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-10 13:00:54,372 | INFO  | Starting Jetty server | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,443 | INFO  | Creating Jetty connector | org.apache.activemq.transport.WebTransportServerSupport | WrapperSimpleAppMain
+2023-12-10 13:00:54,517 | WARN  | ServletContext@o.e.j.s.ServletContextHandler@4fa6cb06{/,null,STARTING} has uncovered http methods for path: / | org.eclipse.jetty.security.SecurityHandler | WrapperSimpleAppMain
+2023-12-10 13:00:54,617 | INFO  | Listening for connections at ws://LEGION-JULIEN:61614?maximumConnections=1000&wireFormat.maxFrameSize=104857600 | org.apache.activemq.transport.ws.WSTransportServer | WrapperSimpleAppMain
+2023-12-10 13:00:54,617 | INFO  | Connector ws started | org.apache.activemq.broker.TransportConnector | WrapperSimpleAppMain
+2023-12-10 13:00:54,617 | INFO  | Apache ActiveMQ 5.17.0 (localhost, ID:LEGION-JULIEN-21097-1702209654173-0:1) started | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-10 13:00:54,617 | INFO  | For help or more information please see: http://activemq.apache.org | org.apache.activemq.broker.BrokerService | WrapperSimpleAppMain
+2023-12-10 13:00:55,266 | INFO  | ActiveMQ WebConsole available at http://127.0.0.1:8161/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain
+2023-12-10 13:00:55,267 | INFO  | ActiveMQ Jolokia REST API available at http://127.0.0.1:8161/api/jolokia/ | org.apache.activemq.web.WebConsoleStarter | WrapperSimpleAppMain

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CS_Server_Main.Exposed.Objects;
+using CS_Server_Main.InternalSystem.RoutingSystem;
+using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
@@ -14,14 +16,27 @@ namespace CS_Server_Main.Exposed.Services
     {
         //ensemble des addresses compatible avec l'input
         [OperationContract]
-        string[] getCorrectAdress(string input);
+        Places[] getCorrectAdress(string input);
 
         [OperationContract]
-        //RETURN FORMAT : LAT/LONG
         GeoCoordinate getCoordonateWithUniqueCorrectAdress(string correctAdrress);
 
         [OperationContract]
-        Itinerary getItinerary(string start, string end);
+        Guid computeItineraryWithAddress(Places start, Places end, bool activeMq, string typeOfTransport, string method);
+
+        [OperationContract]
+        string getCorrectAdressFromCooordinates(GeoCoordinate coordinate);
+
+        [OperationContract]
+        Guid computeItineraryWithGeoCoordinates(GeoCoordinate start, GeoCoordinate end, bool activeMq, string transport, string method);
+
+        [OperationContract]
+        void itineraryFinish(Guid uuid);
+        [OperationContract]
+        Itinerary getItinerary(Guid uuid);
+
+        [OperationContract]
+        List<List<double>> getCoordonatesFromWaypoint(int waypoint,Guid itineraryID);
 
     }
 }

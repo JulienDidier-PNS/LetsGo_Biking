@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main" />
+  <xs:import schemaLocation="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" />
   <xs:import schemaLocation="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Device.Location" />
-  <xs:import schemaLocation="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main.Utils" />
   <xs:element name="getContractByCityName">
     <xs:complexType>
       <xs:sequence>
@@ -13,36 +12,79 @@
   <xs:element name="getContractByCityNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CS_Server_Main" minOccurs="0" name="getContractByCityNameResult" nillable="true" type="q1:JCContrat" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="getContractByCityNameResult" nillable="true" type="q1:JCContrat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationFromPositionInSpecificContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="coordinates" nillable="true" type="q2:GeoCoordinate" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="contrat" nillable="true" type="q3:JCContrat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationFromPositionInSpecificContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="getNearestStationFromPositionInSpecificContractResult" nillable="true" type="q4:JCStation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getNearestStationFromPosition">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="coordinates" nillable="true" type="q2:GeoCoordinate" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CS_Server_Main" minOccurs="0" name="contrat" nillable="true" type="q3:JCContrat" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="coordinates" nillable="true" type="q5:GeoCoordinate" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="getNearestStationFromPositionResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CS_Server_Main" minOccurs="0" name="getNearestStationFromPositionResult" nillable="true" type="q4:JCStation" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="getNearestStationFromPositionResult" nillable="true" type="q6:JCStation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationWithBikesAvailableFromPositionInSpecificContract">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="coordinates" nillable="true" type="q7:GeoCoordinate" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="contrat" nillable="true" type="q8:JCContrat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationWithBikesAvailableFromPositionInSpecificContractResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="getNearestStationWithBikesAvailableFromPositionInSpecificContractResult" nillable="true" type="q9:JCStation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationWithBikesAvailableFromPosition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="coordinates" nillable="true" type="q10:GeoCoordinate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getNearestStationWithBikesAvailableFromPositionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="getNearestStationWithBikesAvailableFromPositionResult" nillable="true" type="q11:JCStation" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="positionToGeoCoordinates">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CS_Server_Main.Utils" minOccurs="0" name="position" nillable="true" type="q5:Position" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects" minOccurs="0" name="position" nillable="true" type="q12:Position" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="positionToGeoCoordinatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="positionToGeoCoordinatesResult" nillable="true" type="q6:GeoCoordinate" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/System.Device.Location" minOccurs="0" name="positionToGeoCoordinatesResult" nillable="true" type="q13:GeoCoordinate" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,15 +1,16 @@
-﻿using CS_Server_Main.InternalSystem.JCDECAUX.API;
-using CS_Server_Main.InternalSystem.JCDECAUX.JCDECAUX_OBJ;
-using CS_Server_Main.Utils;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CS_ProxyCache_MAIN.RoutingService;
+using CS_ProxyCache_MAIN.OPENROUTESERVICE;
+using CS_ProxyCache_MAIN.Exposed.Objects;
+using CS_ProxyCache_MAIN.JCDECAUX.API;
 
-namespace CS_Server_Main.InternalSystem.JCDECAUX
+namespace CS_ProxyCache_MAIN.Exposed
 {
     public class JCDecaux_Service : I_JCDecaux
     {
@@ -25,8 +26,6 @@ namespace CS_Server_Main.InternalSystem.JCDECAUX
 
         //délai de validité d'un contrat : 1 semaines
         private static long DEFAULT_TTL_CONTRACTS = 604800000;
-        //délai de validité d'une station : 10min
-        private static long DEFAULT_TTL_STATION = 300000;
 
         private DateTime lastupdateContracts = DateTime.MinValue;
 
@@ -86,7 +85,7 @@ namespace CS_Server_Main.InternalSystem.JCDECAUX
             this.lastupdateContracts = DateTime.Now;
         }
 
-        JCStation I_JCDecaux.getNearestStationFromPosition(GeoCoordinate coordinates, JCContrat contrat)
+        JCStation I_JCDecaux.getNearestStationFromPositionInSpecificContract(GeoCoordinate coordinates, JCContrat contrat)
         {
             JCStation nearestStation = null;
             double lowestDistance = Double.MaxValue;
@@ -96,6 +95,22 @@ namespace CS_Server_Main.InternalSystem.JCDECAUX
                 double distance = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
                 if (distance < lowestDistance) { lowestDistance = distance; nearestStation = station; }
             }
+            return nearestStation;
+        }
+
+        JCStation I_JCDecaux.getNearestStationFromPosition(GeoCoordinate coordinates)
+        {
+            JCStation nearestStation = null;
+            double lowestDistance = Double.MaxValue;
+            foreach(JCContrat contrat in this.contractsList)
+            {
+                foreach (JCStation station in getStationsFromContrat(contrat))
+                {
+                    double distance = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                    if (distance < lowestDistance) { lowestDistance = distance; nearestStation = station; }
+                }
+            }
+
             return nearestStation;
         }
 
@@ -154,5 +169,89 @@ namespace CS_Server_Main.InternalSystem.JCDECAUX
         {
             Console.WriteLine("proxy fonctionne !");
         }
+
+        JCStation I_JCDecaux.getNearestStationWithBikesAvailableFromPositionInSpecificContract(GeoCoordinate coordinates, JCContrat contrat)
+        {
+            JCStation nearestStation = null;
+            double lowestDistance = Double.MaxValue;
+            List<JCStation> resultToRequest = getStationsFromContrat(contrat);
+
+            //TRIE DE LA LISTE PAR ORDRE DE DISTANCE MINIMUM
+            resultToRequest.OrderBy(i => i.position.toGeoCoordinate().GetDistanceTo(coordinates)).ToList();
+
+            foreach (JCStation station in resultToRequest)
+            {
+                //PAS DE VELOS DISPO.
+                if (station.status.Equals("CLOSE") || station.totalStands.availabilities.bikes <= 0) { }
+                else{
+                    //LISTE DES COORDONEES
+                    List<GeoCoordinate> best = new List<GeoCoordinate>();
+                    best.Add(coordinates);
+                    best.Add(station.position.toGeoCoordinate());
+                    //CALCULER LA DISTANCE A PIED ET NON A VOL D'OISEAU
+
+                    double distance_foot = JsonConvert.DeserializeObject<Itinerary>(Requester_OpenRouteService.getItinerary(best, MEANS_TRANSPORT.PEDESTRIANS).Result).routes[0].segments[0].distance;
+                    double distance_bird = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                    //double distance = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                    if (distance_foot < lowestDistance) { lowestDistance = distance_foot; nearestStation = station; }
+
+                    //si distance à pied ajoute +/- de 50% de distance à vol d'oiseau, on accepte (trier par ordre croissant donc dès que condition validée : FORCEMENT la plus proche
+                    Console.WriteLine("distance vol d'oiseau : "+ distance_bird.ToString()+ " | distance à pied : "+ distance_foot.ToString());
+                    if (distance_foot <= distance_bird+(distance_bird * 0.5) && 
+                        distance_foot >= distance_bird - (distance_bird * 0.5)) { return station; }
+                }
+            }
+            return nearestStation;
+
+        }
+
+        public JCStation getNearestStationWithBikesAvailableFromPosition(GeoCoordinate coordinates)
+        {
+            JCStation nearestStation = null;
+            double lowestDistance = Double.MaxValue;
+
+            //ON FAIT UN PREMIER PARCOURS
+            List<JCStation> nearest = new  List<JCStation>();
+
+            foreach(JCContrat contrat in this.contractsList)
+            {
+                List<JCStation> resultToRequest = getStationsFromContrat(contrat);
+                resultToRequest.OrderBy(i => i.position.toGeoCoordinate().GetDistanceTo(coordinates)).ToList();
+
+                foreach (JCStation station in resultToRequest)
+                {
+                        //PAS DE VELOS DISPO.
+                        if (station.status.Equals("CLOSE") || station.totalStands.availabilities.bikes <= 0) { }
+                        else
+                        {
+                            //LISTE DES COORDONEES
+                            List<GeoCoordinate> best = new List<GeoCoordinate>();
+                            best.Add(coordinates);
+                            best.Add(station.position.toGeoCoordinate());
+                            //CALCULER LA DISTANCE A PIED ET NON A VOL D'OISEAU
+                            double distance_bird = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                            //double distance = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                            if (distance_bird < lowestDistance) { lowestDistance = distance_bird; nearestStation = station; }
+                        }
+                    }
+                if(nearestStation != null && !nearest.Contains(nearestStation)) { nearest.Add(nearestStation); }
+            }
+
+            double final_LowestDistance = Double.MaxValue;
+            foreach(JCStation station in nearest)
+            {
+                //LISTE DES COORDONEES
+                List<GeoCoordinate> best = new List<GeoCoordinate>();
+                best.Add(coordinates);
+                best.Add(station.position.toGeoCoordinate());
+                //CALCULER LA DISTANCE A PIED ET NON A VOL D'OISEAU
+                double distance_foot = JsonConvert.DeserializeObject<Itinerary>(Requester_OpenRouteService.getItinerary(best, MEANS_TRANSPORT.PEDESTRIANS).Result).routes[0].segments[0].distance;
+                double distance_bird = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                //double distance = station.position.toGeoCoordinate().GetDistanceTo(coordinates);
+                if (distance_foot < final_LowestDistance) { final_LowestDistance = distance_foot; nearestStation = station; }
+            }
+            return nearestStation;
+        }
+           
     }
 }

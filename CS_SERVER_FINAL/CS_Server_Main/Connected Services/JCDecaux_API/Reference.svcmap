@@ -28,7 +28,6 @@
     <MetadataFile FileName="JCDecaux_Service.wsdl" MetadataType="Wsdl" ID="269e5963-49e5-421e-a623-a7baca714681" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?wsdl" />
     <MetadataFile FileName="ProxyCache2.xsd" MetadataType="Schema" ID="a466e621-4b28-462a-a5b2-df49c89128b5" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd1" />
     <MetadataFile FileName="ProxyCache3.xsd" MetadataType="Schema" ID="7e770597-0b2f-4cf6-972e-30da550f8629" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd0" />
-    <MetadataFile FileName="ProxyCache4.xsd" MetadataType="Schema" ID="f466bdeb-0fa3-4dee-ab7d-652c0b101426" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd5" />
     <MetadataFile FileName="ProxyCache5.xsd" MetadataType="Schema" ID="217dd721-69cc-4e5f-8708-56a7852861c6" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd2" />
   </Metadata>
   <Extensions>

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
-using CS_Server_Main.InternalSystem.JCDECAUX;
+using CS_ProxyCache_MAIN.Exposed;
 
-namespace CS_Server_Main
+namespace CS_ProxyCache_MAIN
 {
     internal class Program
     {

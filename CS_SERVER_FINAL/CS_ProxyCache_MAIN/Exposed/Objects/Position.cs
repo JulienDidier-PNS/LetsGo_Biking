@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS_Server_Main.Utils
+namespace CS_ProxyCache_MAIN.Exposed.Objects
 {
         [DataContract]
         public class Position

@@ -26,3 +26,8 @@ C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_F
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\obj\Debug\CS_Server_Main.csproj.CopyComplete
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\obj\Debug\CS_Server_Main.exe
 C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\obj\Debug\CS_Server_Main.pdb
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\bin\Debug\Apache.NMS.ActiveMQ.dll
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\bin\Debug\Apache.NMS.dll
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\bin\Debug\ICSharpCode.SharpZipLib.pdb
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Server_Main\bin\Debug\ICSharpCode.SharpZipLib.xml

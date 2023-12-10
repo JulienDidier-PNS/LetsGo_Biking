@@ -15,7 +15,7 @@ namespace CS_Server_Main.JCDecaux_API {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="JCContrat", Namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JCContrat", Namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects")]
     [System.SerializableAttribute()]
     public partial class JCContrat : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -108,13 +108,14 @@ namespace CS_Server_Main.JCDecaux_API {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="JCStation", Namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JCStation", Namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(System.Device.Location.GeoCoordinate))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(string[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CS_Server_Main.JCDecaux_API.Position))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CS_Server_Main.JCDecaux_API.JCContrat))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(CS_Server_Main.JCDecaux_API.JCStands))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CS_Server_Main.JCDecaux_API.availabilities))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(CS_Server_Main.JCDecaux_API.Position))]
     public partial class JCStation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -382,12 +383,15 @@ namespace CS_Server_Main.JCDecaux_API {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="JCStands", Namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="JCStands", Namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects")]
     [System.SerializableAttribute()]
     public partial class JCStands : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CS_Server_Main.JCDecaux_API.availabilities availabilitiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int capacityField;
@@ -399,6 +403,19 @@ namespace CS_Server_Main.JCDecaux_API {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CS_Server_Main.JCDecaux_API.availabilities availabilities {
+            get {
+                return this.availabilitiesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.availabilitiesField, value) != true)) {
+                    this.availabilitiesField = value;
+                    this.RaisePropertyChanged("availabilities");
+                }
             }
         }
         
@@ -427,7 +444,7 @@ namespace CS_Server_Main.JCDecaux_API {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Position", Namespace="http://schemas.datacontract.org/2004/07/CS_Server_Main.Utils")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Position", Namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects")]
     [System.SerializableAttribute()]
     public partial class Position : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -486,6 +503,131 @@ namespace CS_Server_Main.JCDecaux_API {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="availabilities", Namespace="http://schemas.datacontract.org/2004/07/CS_ProxyCache_MAIN.Exposed.Objects")]
+    [System.SerializableAttribute()]
+    public partial class availabilities : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int bikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int electricalBikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int electricalInternalBatteryBikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int electricalRemovableBatteryBikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int mechanicalBikesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int standsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int bikes {
+            get {
+                return this.bikesField;
+            }
+            set {
+                if ((this.bikesField.Equals(value) != true)) {
+                    this.bikesField = value;
+                    this.RaisePropertyChanged("bikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int electricalBikes {
+            get {
+                return this.electricalBikesField;
+            }
+            set {
+                if ((this.electricalBikesField.Equals(value) != true)) {
+                    this.electricalBikesField = value;
+                    this.RaisePropertyChanged("electricalBikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int electricalInternalBatteryBikes {
+            get {
+                return this.electricalInternalBatteryBikesField;
+            }
+            set {
+                if ((this.electricalInternalBatteryBikesField.Equals(value) != true)) {
+                    this.electricalInternalBatteryBikesField = value;
+                    this.RaisePropertyChanged("electricalInternalBatteryBikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int electricalRemovableBatteryBikes {
+            get {
+                return this.electricalRemovableBatteryBikesField;
+            }
+            set {
+                if ((this.electricalRemovableBatteryBikesField.Equals(value) != true)) {
+                    this.electricalRemovableBatteryBikesField = value;
+                    this.RaisePropertyChanged("electricalRemovableBatteryBikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int mechanicalBikes {
+            get {
+                return this.mechanicalBikesField;
+            }
+            set {
+                if ((this.mechanicalBikesField.Equals(value) != true)) {
+                    this.mechanicalBikesField = value;
+                    this.RaisePropertyChanged("mechanicalBikes");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int stands {
+            get {
+                return this.standsField;
+            }
+            set {
+                if ((this.standsField.Equals(value) != true)) {
+                    this.standsField = value;
+                    this.RaisePropertyChanged("stands");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="JCDecaux_API.I_JCDecaux")]
     public interface I_JCDecaux {
@@ -496,11 +638,37 @@ namespace CS_Server_Main.JCDecaux_API {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getContractByCityName", ReplyAction="http://tempuri.org/I_JCDecaux/getContractByCityNameResponse")]
         System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCContrat> getContractByCityNameAsync(string cityName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationFromPosition", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionResponse")]
-        CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPosition(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionInSpecificContract", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionInSpecificContractResp" +
+            "onse")]
+        CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPositionInSpecificContract(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionInSpecificContract", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionInSpecificContractResp" +
+            "onse")]
+        System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionInSpecificContractAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationFromPosition", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionResponse")]
-        System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
+        CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPosition(System.Device.Location.GeoCoordinate coordinates);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationFromPosition", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationFromPositionResponse")]
+        System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionAsync(System.Device.Location.GeoCoordinate coordinates);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionInSp" +
+            "ecificContract", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionInSp" +
+            "ecificContractResponse")]
+        CS_Server_Main.JCDecaux_API.JCStation getNearestStationWithBikesAvailableFromPositionInSpecificContract(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionInSp" +
+            "ecificContract", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionInSp" +
+            "ecificContractResponse")]
+        System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationWithBikesAvailableFromPositionInSpecificContractAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPosition", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionResp" +
+            "onse")]
+        CS_Server_Main.JCDecaux_API.JCStation getNearestStationWithBikesAvailableFromPosition(System.Device.Location.GeoCoordinate coordinates);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPosition", ReplyAction="http://tempuri.org/I_JCDecaux/getNearestStationWithBikesAvailableFromPositionResp" +
+            "onse")]
+        System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationWithBikesAvailableFromPositionAsync(System.Device.Location.GeoCoordinate coordinates);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/I_JCDecaux/positionToGeoCoordinates", ReplyAction="http://tempuri.org/I_JCDecaux/positionToGeoCoordinatesResponse")]
         System.Device.Location.GeoCoordinate positionToGeoCoordinates(CS_Server_Main.JCDecaux_API.Position position);
@@ -550,12 +718,36 @@ namespace CS_Server_Main.JCDecaux_API {
             return base.Channel.getContractByCityNameAsync(cityName);
         }
         
-        public CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPosition(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
-            return base.Channel.getNearestStationFromPosition(coordinates, contrat);
+        public CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPositionInSpecificContract(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
+            return base.Channel.getNearestStationFromPositionInSpecificContract(coordinates, contrat);
         }
         
-        public System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
-            return base.Channel.getNearestStationFromPositionAsync(coordinates, contrat);
+        public System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionInSpecificContractAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
+            return base.Channel.getNearestStationFromPositionInSpecificContractAsync(coordinates, contrat);
+        }
+        
+        public CS_Server_Main.JCDecaux_API.JCStation getNearestStationFromPosition(System.Device.Location.GeoCoordinate coordinates) {
+            return base.Channel.getNearestStationFromPosition(coordinates);
+        }
+        
+        public System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationFromPositionAsync(System.Device.Location.GeoCoordinate coordinates) {
+            return base.Channel.getNearestStationFromPositionAsync(coordinates);
+        }
+        
+        public CS_Server_Main.JCDecaux_API.JCStation getNearestStationWithBikesAvailableFromPositionInSpecificContract(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
+            return base.Channel.getNearestStationWithBikesAvailableFromPositionInSpecificContract(coordinates, contrat);
+        }
+        
+        public System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationWithBikesAvailableFromPositionInSpecificContractAsync(System.Device.Location.GeoCoordinate coordinates, CS_Server_Main.JCDecaux_API.JCContrat contrat) {
+            return base.Channel.getNearestStationWithBikesAvailableFromPositionInSpecificContractAsync(coordinates, contrat);
+        }
+        
+        public CS_Server_Main.JCDecaux_API.JCStation getNearestStationWithBikesAvailableFromPosition(System.Device.Location.GeoCoordinate coordinates) {
+            return base.Channel.getNearestStationWithBikesAvailableFromPosition(coordinates);
+        }
+        
+        public System.Threading.Tasks.Task<CS_Server_Main.JCDecaux_API.JCStation> getNearestStationWithBikesAvailableFromPositionAsync(System.Device.Location.GeoCoordinate coordinates) {
+            return base.Channel.getNearestStationWithBikesAvailableFromPositionAsync(coordinates);
         }
         
         public System.Device.Location.GeoCoordinate positionToGeoCoordinates(CS_Server_Main.JCDecaux_API.Position position) {

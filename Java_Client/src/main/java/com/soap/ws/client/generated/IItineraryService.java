@@ -27,13 +27,13 @@ public interface IItineraryService {
      * 
      * @param input
      * @return
-     *     returns com.soap.ws.client.generated.ArrayOfstring
+     *     returns com.soap.ws.client.generated.ArrayOfPlaces
      */
     @WebMethod(action = "http://tempuri.org/I_ItineraryService/getCorrectAdress")
     @WebResult(name = "getCorrectAdressResult", targetNamespace = "http://tempuri.org/")
     @RequestWrapper(localName = "getCorrectAdress", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCorrectAdress")
     @ResponseWrapper(localName = "getCorrectAdressResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCorrectAdressResponse")
-    public ArrayOfstring getCorrectAdress(
+    public ArrayOfPlaces getCorrectAdress(
         @WebParam(name = "input", targetNamespace = "http://tempuri.org/")
         String input);
 
@@ -53,8 +53,84 @@ public interface IItineraryService {
 
     /**
      * 
+     * @param activeMq
+     * @param method
      * @param start
      * @param end
+     * @param typeOfTransport
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(action = "http://tempuri.org/I_ItineraryService/computeItineraryWithAddress")
+    @WebResult(name = "computeItineraryWithAddressResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "computeItineraryWithAddress", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ComputeItineraryWithAddress")
+    @ResponseWrapper(localName = "computeItineraryWithAddressResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ComputeItineraryWithAddressResponse")
+    public String computeItineraryWithAddress(
+        @WebParam(name = "start", targetNamespace = "http://tempuri.org/")
+        Places start,
+        @WebParam(name = "end", targetNamespace = "http://tempuri.org/")
+        Places end,
+        @WebParam(name = "activeMq", targetNamespace = "http://tempuri.org/")
+        Boolean activeMq,
+        @WebParam(name = "typeOfTransport", targetNamespace = "http://tempuri.org/")
+        String typeOfTransport,
+        @WebParam(name = "method", targetNamespace = "http://tempuri.org/")
+        String method);
+
+    /**
+     * 
+     * @param coordinate
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(action = "http://tempuri.org/I_ItineraryService/getCorrectAdressFromCooordinates")
+    @WebResult(name = "getCorrectAdressFromCooordinatesResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "getCorrectAdressFromCooordinates", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCorrectAdressFromCooordinates")
+    @ResponseWrapper(localName = "getCorrectAdressFromCooordinatesResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCorrectAdressFromCooordinatesResponse")
+    public String getCorrectAdressFromCooordinates(
+        @WebParam(name = "coordinate", targetNamespace = "http://tempuri.org/")
+        GeoCoordinate coordinate);
+
+    /**
+     * 
+     * @param activeMq
+     * @param method
+     * @param start
+     * @param end
+     * @param transport
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(action = "http://tempuri.org/I_ItineraryService/computeItineraryWithGeoCoordinates")
+    @WebResult(name = "computeItineraryWithGeoCoordinatesResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "computeItineraryWithGeoCoordinates", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ComputeItineraryWithGeoCoordinates")
+    @ResponseWrapper(localName = "computeItineraryWithGeoCoordinatesResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ComputeItineraryWithGeoCoordinatesResponse")
+    public String computeItineraryWithGeoCoordinates(
+        @WebParam(name = "start", targetNamespace = "http://tempuri.org/")
+        GeoCoordinate start,
+        @WebParam(name = "end", targetNamespace = "http://tempuri.org/")
+        GeoCoordinate end,
+        @WebParam(name = "activeMq", targetNamespace = "http://tempuri.org/")
+        Boolean activeMq,
+        @WebParam(name = "transport", targetNamespace = "http://tempuri.org/")
+        String transport,
+        @WebParam(name = "method", targetNamespace = "http://tempuri.org/")
+        String method);
+
+    /**
+     * 
+     * @param uuid
+     */
+    @WebMethod(action = "http://tempuri.org/I_ItineraryService/itineraryFinish")
+    @RequestWrapper(localName = "itineraryFinish", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ItineraryFinish")
+    @ResponseWrapper(localName = "itineraryFinishResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.ItineraryFinishResponse")
+    public void itineraryFinish(
+        @WebParam(name = "uuid", targetNamespace = "http://tempuri.org/")
+        String uuid);
+
+    /**
+     * 
+     * @param uuid
      * @return
      *     returns com.soap.ws.client.generated.Itinerary
      */
@@ -63,9 +139,24 @@ public interface IItineraryService {
     @RequestWrapper(localName = "getItinerary", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetItinerary")
     @ResponseWrapper(localName = "getItineraryResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetItineraryResponse")
     public Itinerary getItinerary(
-        @WebParam(name = "start", targetNamespace = "http://tempuri.org/")
-        String start,
-        @WebParam(name = "end", targetNamespace = "http://tempuri.org/")
-        String end);
+        @WebParam(name = "uuid", targetNamespace = "http://tempuri.org/")
+        String uuid);
+
+    /**
+     * 
+     * @param waypoint
+     * @param itineraryID
+     * @return
+     *     returns com.soap.ws.client.generated.ArrayOfArrayOfdouble
+     */
+    @WebMethod(action = "http://tempuri.org/I_ItineraryService/getCoordonatesFromWaypoint")
+    @WebResult(name = "getCoordonatesFromWaypointResult", targetNamespace = "http://tempuri.org/")
+    @RequestWrapper(localName = "getCoordonatesFromWaypoint", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCoordonatesFromWaypoint")
+    @ResponseWrapper(localName = "getCoordonatesFromWaypointResponse", targetNamespace = "http://tempuri.org/", className = "com.soap.ws.client.generated.GetCoordonatesFromWaypointResponse")
+    public ArrayOfArrayOfdouble getCoordonatesFromWaypoint(
+        @WebParam(name = "waypoint", targetNamespace = "http://tempuri.org/")
+        Integer waypoint,
+        @WebParam(name = "itineraryID", targetNamespace = "http://tempuri.org/")
+        String itineraryID);
 
 }

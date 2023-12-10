@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="getCorrectAdressResult" type="{http://schemas.microsoft.com/2003/10/Serialization/Arrays}ArrayOfstring" minOccurs="0"/&gt;
+ *         &lt;element name="getCorrectAdressResult" type="{http://schemas.datacontract.org/2004/07/CS_Server_Main.Exposed.Objects}ArrayOfPlaces" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -32,21 +32,21 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "getCorrectAdressResult"
 })
-@XmlRootElement(name = "getCorrectAdressResponse", namespace = "http://tempuri.org/")
+@XmlRootElement(name = "getCorrectAdressResponse")
 public class GetCorrectAdressResponse {
 
     @XmlElementRef(name = "getCorrectAdressResult", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
-    protected JAXBElement<ArrayOfstring> getCorrectAdressResult;
+    protected JAXBElement<ArrayOfPlaces> getCorrectAdressResult;
 
     /**
      * Obtient la valeur de la propriété getCorrectAdressResult.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrayOfPlaces }{@code >}
      *     
      */
-    public JAXBElement<ArrayOfstring> getGetCorrectAdressResult() {
+    public JAXBElement<ArrayOfPlaces> getGetCorrectAdressResult() {
         return getCorrectAdressResult;
     }
 
@@ -55,10 +55,10 @@ public class GetCorrectAdressResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link ArrayOfstring }{@code >}
+     *     {@link JAXBElement }{@code <}{@link ArrayOfPlaces }{@code >}
      *     
      */
-    public void setGetCorrectAdressResult(JAXBElement<ArrayOfstring> value) {
+    public void setGetCorrectAdressResult(JAXBElement<ArrayOfPlaces> value) {
         this.getCorrectAdressResult = value;
     }
 

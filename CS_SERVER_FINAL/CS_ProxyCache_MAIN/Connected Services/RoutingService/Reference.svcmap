@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="70df67a4-84fb-4db1-9326-7d146da987c0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8090/MyService/Middleware/RoutingServer" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RoutingServer.xsd" MetadataType="Schema" ID="44fb5231-737a-44bd-809d-7315287012b2" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd2" />
+    <MetadataFile FileName="RoutingServer1.xsd" MetadataType="Schema" ID="6f556379-8b9a-4e61-922d-aba56a1972f5" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd3" />
+    <MetadataFile FileName="RoutingServer2.xsd" MetadataType="Schema" ID="52b3956c-abc1-4270-a102-ae8c4bcbe279" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd4" />
+    <MetadataFile FileName="RoutingServer3.xsd" MetadataType="Schema" ID="979fbba9-5ee2-4fb7-80ec-b35e9093d867" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd5" />
+    <MetadataFile FileName="ItineraryService.wsdl" MetadataType="Wsdl" ID="d70b5722-3755-4dcf-b8d5-0ca9a78bee95" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?wsdl" />
+    <MetadataFile FileName="RoutingServer.disco" MetadataType="Disco" ID="9d5d2d5d-ee1a-4660-8942-481d00ba8092" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?disco" />
+    <MetadataFile FileName="RoutingServer4.xsd" MetadataType="Schema" ID="a4881441-4adb-4d20-aa9d-add28bbc278a" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd0" />
+    <MetadataFile FileName="RoutingServer5.xsd" MetadataType="Schema" ID="6b7bc3e6-73af-4295-810b-479d568cdbdc" SourceId="1" SourceUrl="http://localhost:8090/MyService/Middleware/RoutingServer?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

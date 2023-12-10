@@ -11,67 +11,39 @@ using System.Threading.Tasks;
 namespace CS_Server_Main.InternalSystem.RoutingSystem
 {
     public static class AdressService
-    {
-        public static Adress_OBJ adresseGenerator(string inputAdress)
-        {
-            Adress_OBJ toReturn = new Adress_OBJ();
+    {      
 
-            //ON DEMANDE L'ADRESSE CORRECTE
-            var correctStartingAdress = Requester_OpenAPI.getCompleteAdressFromString(inputAdress).Result;
-
-            //on convertit le json en objet dynamic -> permet de prendre ce qu'on veut
-            dynamic adress = JsonConvert.DeserializeObject<dynamic[]>(correctStartingAdress);
-            double lat = adress[0].lat;
-            double lon = adress[0].lon;
-
-            GeoCoordinate coordonates = new GeoCoordinate(lat, lon);
-            //ON RECUEILLE UNIQUEMENT LA LATTITUDE ET LA LONGITUDE
-            var formatFinal = Requester_OpenAPI.getCompleteAdressFromCoordonates(coordonates).Result;
-            dynamic finalAdress = JsonConvert.DeserializeObject<dynamic>(formatFinal);
-
-            if (finalAdress != null)
-            {
-                toReturn.road = finalAdress.address.road;
-                toReturn.country = finalAdress.address.country;
-                toReturn.postcode = finalAdress.address.postcode;
-                toReturn.region = finalAdress.address.region;
-
-                if (finalAdress.address.city != null) { toReturn.city = finalAdress.address.city; }
-                if (finalAdress.address.town != null) { toReturn.city = finalAdress.address.town; }
-                else
-                {
-                    string display_name = finalAdress.display_name;
-                    string[] display_split = display_name.Split(',');
-                    Console.WriteLine(display_split.ToString());
-                    string city = display_split[display_split.Length - 5];
-                }
-
-                toReturn.coordinates = coordonates;
-            }
-
-            Console.WriteLine(toReturn.city);
-            return toReturn;
-        }
         // CONVERSION
 
         /* ADRESS TO COMPLETE ADRESSE */
-        public static string[] inputToCompleteAdress(string input)
+        public static Places[] inputToCompleteAdress(string input)
         {
             Console.WriteLine("passage_input_Converter");
             //recupération des adresses trouvées par OPENSTREETMAP
             try
             {
                 var correctStartingAdress = Requester_OpenAPI.getCompleteAdressFromString(input).Result;
-                //on convertit le json en objet dynamic -> permet de prendre ce qu'on veut
-                dynamic adress = JsonConvert.DeserializeObject<dynamic[]>(correctStartingAdress);
-                int nb_adress = adress.Length;
+                //CONVERSION UNE PREMIERE FOIS (SANS LES ADDRESSES)
+                Places[] address = System.Text.Json.JsonSerializer.Deserialize<Places[]>(correctStartingAdress);
+                foreach(Places places1 in address) { places1.finalCoordinate = new GeoCoordinate(Double.Parse(places1.lat.Replace(".",",")), Double.Parse(places1.lon.Replace(".", ","))); }
+                int nbAdresses = address.Length;
+                
+                Places[] finalAddresses = new Places[nbAdresses];
 
-                //TODO -> RETOURNER L'ADRESSE
-                string[] adresses = new string[nb_adress];
+                //CONVERSION FINALE AVEC LES ADDRESSES
+                for (int i=0;i<address.Length;i++)
+                {
+                    var addresseFromCooordinates = Requester_OpenAPI.getCompleteAdressFromCoordonates(address[i].finalCoordinate).Result;
+                    finalAddresses[i] = System.Text.Json.JsonSerializer.Deserialize<Places>(addresseFromCooordinates);
+                }
 
-                //on copie les adresses dans le tableau
-                for (int i = 0; i < adress.Length; i++) { adresses[i] = adress[i].display_name; }
-                return adresses;
+                foreach(Places places in finalAddresses)
+                {
+                    Console.WriteLine(places.lat);
+                    Console.WriteLine(places.lon);
+                    places.finalCoordinate = new GeoCoordinate(Double.Parse(places.lat.Replace(".",",")), Double.Parse(places.lon.Replace(".", ",")));
+                }
+                return finalAddresses;
             }
             catch (Exception ex)
             {
@@ -100,6 +72,15 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
         public async static Task<string> getCompleteAdressFromCoordonates(GeoCoordinate geoCoordinate)
         {
             return await Requester_OpenAPI.getCompleteAdressFromCoordonates(geoCoordinate);
+        }
+
+        internal static Places getPlaceFromCoordinates(GeoCoordinate start)
+        {
+            var correctStartingAdress = Requester_OpenAPI.getCompleteAdressFromCoordonates(start).Result;
+            //CONVERSION EN TABLEAU D'ADRESSES
+            Places adress = System.Text.Json.JsonSerializer.Deserialize<Places>(correctStartingAdress);
+            adress.finalCoordinate = new GeoCoordinate(Double.Parse(adress.lat.Replace(".", ",")), Double.Parse(adress.lon.Replace(".", ",")));
+            return adress;
         }
     }
 }

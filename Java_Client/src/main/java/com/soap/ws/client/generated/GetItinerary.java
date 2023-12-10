@@ -1,10 +1,8 @@
 
 package com.soap.ws.client.generated;
 
-import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -19,8 +17,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="start" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="end" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="uuid" type="{http://schemas.microsoft.com/2003/10/Serialization/}guid" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -31,63 +28,35 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "start",
-    "end"
+    "uuid"
 })
-@XmlRootElement(name = "getItinerary", namespace = "http://tempuri.org/")
+@XmlRootElement(name = "getItinerary")
 public class GetItinerary {
 
-    @XmlElementRef(name = "start", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> start;
-    @XmlElementRef(name = "end", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
-    protected JAXBElement<String> end;
+    protected String uuid;
 
     /**
-     * Obtient la valeur de la propriété start.
+     * Obtient la valeur de la propriété uuid.
      * 
      * @return
      *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public JAXBElement<String> getStart() {
-        return start;
+    public String getUuid() {
+        return uuid;
     }
 
     /**
-     * Définit la valeur de la propriété start.
+     * Définit la valeur de la propriété uuid.
      * 
      * @param value
      *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
+     *     {@link String }
      *     
      */
-    public void setStart(JAXBElement<String> value) {
-        this.start = value;
-    }
-
-    /**
-     * Obtient la valeur de la propriété end.
-     * 
-     * @return
-     *     possible object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public JAXBElement<String> getEnd() {
-        return end;
-    }
-
-    /**
-     * Définit la valeur de la propriété end.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link JAXBElement }{@code <}{@link String }{@code >}
-     *     
-     */
-    public void setEnd(JAXBElement<String> value) {
-        this.end = value;
+    public void setUuid(String value) {
+        this.uuid = value;
     }
 
 }

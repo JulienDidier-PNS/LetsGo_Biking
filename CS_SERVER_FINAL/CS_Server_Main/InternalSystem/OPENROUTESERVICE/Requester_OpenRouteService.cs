@@ -46,8 +46,6 @@ namespace CS_Server_Main.InternalSystem.OPENROUTESERVICE
             }
             coords += "]}";
 
-            Console.WriteLine(coords);
-
             Byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(coords);
 
             //PAR DEFAUT -> REQUETE EN VELO
@@ -71,6 +69,7 @@ namespace CS_Server_Main.InternalSystem.OPENROUTESERVICE
                 Console.WriteLine(request.Address.ToString());
                 using (var reader = new StreamReader(response.GetResponseStream()))
                 {
+
                     return reader.ReadToEnd();
                 }
             }

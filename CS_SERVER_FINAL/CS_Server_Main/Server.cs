@@ -5,6 +5,8 @@ using System.ServiceModel.Description;
 using System.ServiceModel;
 using System.Web;
 using CS_Server_Main.Exposed.Services;
+using System.Net.Sockets;
+using System.Net;
 
 namespace CS_Server_Main
 {
@@ -15,6 +17,8 @@ namespace CS_Server_Main
             //Create a URI to serve as the base address
             //Be careful to run Visual Studio as Admistrator or to allow VS to open new port netsh command. 
             // Example : netsh http add urlacl url=http://+:80/MyUri user=DOMAIN\user
+           
+
             Uri httpUrl = new Uri("http://localhost:8090/MyService/Middleware/RoutingServer");
 
             //Create ServiceHost

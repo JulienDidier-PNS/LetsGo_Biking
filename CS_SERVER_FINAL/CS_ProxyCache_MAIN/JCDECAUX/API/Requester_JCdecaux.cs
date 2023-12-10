@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CS_Server_Main.InternalSystem.JCDECAUX.API
+namespace CS_ProxyCache_MAIN.JCDECAUX.API
 {
     public static class Requester_JCdecaux
     {

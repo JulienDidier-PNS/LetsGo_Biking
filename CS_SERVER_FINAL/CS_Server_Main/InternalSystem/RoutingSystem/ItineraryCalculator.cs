@@ -9,6 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using CS_Server_Main.Exposed.Objects;
 using CS_Server_Main.JCDecaux_API;
+using Apache.NMS;
+using Apache.NMS.ActiveMQ;
+using CS_Server_Main.Exceptions;
+using System.Collections;
+using System.Text.Json.Nodes;
+using CS_Server_Main.Utils;
+using CS_Server_Main.InternalSystem.OPENAPI;
+using System.Net.Sockets;
+using System.Web.UI.WebControls.WebParts;
+
 
 namespace CS_Server_Main.InternalSystem.RoutingSystem
 {
@@ -17,86 +27,164 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
         /**
          * CHERCHE L'ITINERAIRE
          * */
-        public static Itinerary getItinerary(Adress_OBJ start, Adress_OBJ end)
+        public static async Task<Guid> getItinerary(Places start, Places end, bool activeMQ, string transport, string method)
         {
-            //REQUETE PROXY/CACHE
             I_JCDecauxClient jcClient = new I_JCDecauxClient();
 
-            Console.WriteLine("Appel au proxy !");
-            JCDecaux_API.JCContrat contratDepart = jcClient.getContractByCityName(start.city);
-            Console.WriteLine("Appel au proxy !");
-            JCDecaux_API.JCContrat contratEnd = jcClient.getContractByCityName(end.city);
+            string startCity = getCityFromPlaces(start);
+            string endCity = getCityFromPlaces(end);
 
-            //SI L'UNE DES DEUX VILLES N'A PAS DE CONTRAT -> ON REFUSE
-            if (contratDepart == null || contratEnd == null) { throw new Exception("Trajet impossible à réaliser !"); }
+           Console.WriteLine("Appel au proxy !");
+            JCContrat contratDepart = jcClient.getContractByCityName(startCity);
+            Console.WriteLine("Appel au proxy !");
+            JCContrat contratEnd = jcClient.getContractByCityName(endCity);
 
-            // PLUS RAPIDE A PIED ? ON STOP
-            TimeSpan durationPEDESTRIAN = ItineraryCalculator.getItineraryDuration(start, end, MEANS_TRANSPORT.PEDESTRIANS);
-            TimeSpan durationBICYCLE = ItineraryCalculator.getItineraryDuration(start, end, MEANS_TRANSPORT.BICYCLE);
+            List<GeoCoordinate> pausePointsWithBike = new List<GeoCoordinate>();
+            //AJOUT DANS L'ORDRE DES ETAPES
+            pausePointsWithBike.Add(start.finalCoordinate);
+            pausePointsWithBike.Add(jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(start.finalCoordinate).position));
+            pausePointsWithBike.Add(jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(end.finalCoordinate).position));
+            pausePointsWithBike.Add(end.finalCoordinate);
+
+            List<GeoCoordinate> pausePointWithoutBike = new List<GeoCoordinate>();
+            pausePointWithoutBike.Add(start.finalCoordinate);
+            pausePointWithoutBike.Add(end.finalCoordinate);
+
+            //RECUPERATION DE L'ITINERAIRE JSON
+            var jsonItineraryTaskWithBike = Requester_OpenRouteService.getItinerary(pausePointsWithBike, MEANS_TRANSPORT.BICYCLE);
+            var jsonItineraryTaskPedestrian = Requester_OpenRouteService.getItinerary(pausePointWithoutBike, MEANS_TRANSPORT.PEDESTRIANS);
+
+            await jsonItineraryTaskWithBike;
+            await jsonItineraryTaskPedestrian;
+
+            string jsonItineraryResponseWithBike = jsonItineraryTaskWithBike.Result;
+            string jsonItineraryResponseWithoutBike = jsonItineraryTaskPedestrian.Result;
+
+            //CONVERSION DE L'ITINERAIRE JSON EN OBJET 
+            Itinerary itineraryWithBike = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithBike);
+            itineraryWithBike.typeOfItinerary = "BIKE";
+            Itinerary itineraryWithoutBike = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithoutBike);
+            itineraryWithoutBike.typeOfItinerary = "PEDESTRIAN";
+
+            TimeSpan durationPEDESTRIAN = TimeSpan.FromSeconds(itineraryWithoutBike.routes[0].summary.duration);
+            TimeSpan durationBICYCLE = TimeSpan.FromSeconds(itineraryWithBike.routes[0].summary.duration);
+
+            double distancePEDESTRIAN = (itineraryWithoutBike.routes[0].summary.distance) / 1000;
+            double distanceBICYCLE = (itineraryWithBike.routes[0].summary.distance) / 1000;
 
             Console.WriteLine("Durée du trajet à pied : " + durationPEDESTRIAN.ToString("d' jours 'h'h 'm'm 's's'"));
+            Console.WriteLine("Distance du trajet en pied : " + distancePEDESTRIAN .ToString()+ "km");
             Console.WriteLine("Durée du trajet à vélo : " + durationBICYCLE.ToString("d' jours 'h'h 'm'm 's's'"));
+            Console.WriteLine("Distance du trajet en vélo : " + distanceBICYCLE.ToString() + "km");
+            Console.WriteLine("Pour aller de "+start.address.ToString()+" à "+end.address.ToString());
 
             Itinerary finalItinerary = new Itinerary();
-            if (durationBICYCLE < durationPEDESTRIAN)
+
+            //SI L'UTILISATEUR VEUT LE TRAJET LE PLUS COURT EN DISTANCE
+            if (method != null)
             {
-                //SI OUI,RECHERCHE LES STATIONS LES PLUS PROCHES DU POINT DE DEPART ET D'ARRIVEE
-
-                //REQUETE PROXY/CACHE
-                Console.WriteLine("Appel au proxy !");
-                JCDecaux_API.JCStation nearestStationFromStart = jcClient.getNearestStationFromPosition(start.coordinates, contratDepart);
-                
-                Console.WriteLine("Appel au proxy !");
-                JCDecaux_API.JCStation nearestStationFromEnd = jcClient.getNearestStationFromPosition(end.coordinates, contratEnd);
-                
-
-                List<GeoCoordinate> pausePoints = new List<GeoCoordinate>();
-
-                //AJOUT DANS L'ORDRE DES ETAPES
-                pausePoints.Add(start.coordinates);
-                pausePoints.Add(jcClient.positionToGeoCoordinates(nearestStationFromStart.position));
-                pausePoints.Add(jcClient.positionToGeoCoordinates(nearestStationFromEnd.position));
-                pausePoints.Add(end.coordinates);
-
-                var jsonItineraryTask = Requester_OpenRouteService.getItinerary(pausePoints, MEANS_TRANSPORT.BICYCLE);
-                string jsonItineraryResponse = jsonItineraryTask.Result;
-                finalItinerary = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponse);
-                return finalItinerary;
+                if (method.Equals(ENUMS_EXTENSION.ToDescriptionString(COMPUTE_METHOD.SHORTEST_DISTANCE)))
+                {
+                    Console.WriteLine("L'utilisateur demande le trajet le plus court en distance !");
+                    if (distanceBICYCLE < distancePEDESTRIAN) { return setupItinerary(itineraryWithBike, start, end, activeMQ); }
+                    else { return setupItinerary(itineraryWithoutBike, start, end, activeMQ); }
+                }
+                //SI L'UTILISATEUR VEUR LE TRAJET LE PLUSS COURT EN TEMPS
+                if (method.Equals(ENUMS_EXTENSION.ToDescriptionString(COMPUTE_METHOD.SHORTEST_TIME)))
+                {
+                    Console.WriteLine("L'utilisateur demande le trajet le plus court en temps !");
+                    if (durationBICYCLE < durationPEDESTRIAN) { return setupItinerary(itineraryWithBike, start, end, activeMQ); }
+                    else { return setupItinerary(itineraryWithoutBike, start, end, activeMQ); }
+                }
             }
-            else
+            if (transport != null)
             {
-                List<GeoCoordinate> pausePoints = new List<GeoCoordinate>();
-                pausePoints.Add(start.coordinates);
-                //AJOUT DES AUTRES POINTS
-                pausePoints.Add(end.coordinates);
-
-                var jsonItineraryTask = Requester_OpenRouteService.getItinerary(pausePoints, MEANS_TRANSPORT.PEDESTRIANS);
-                string jsonItineraryResponse = jsonItineraryTask.Result;
-                finalItinerary = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponse);
-
+                //SI L'UTILISATEUR VEUT UN TRAJET EN VELO
+                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.BICYCLE)))
+                {
+                    Console.WriteLine("L'utilisateur demande un trajet en vélo !");
+                    return setupItinerary(itineraryWithBike, start, end, activeMQ);
+                }
+                //SI L'UTILISATEUR VEUT UN TRAJET à PIED
+                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.PEDESTRIANS)))
+                {
+                    Console.WriteLine("L'utilisateur demandeun trajet à pied !");
+                    return setupItinerary(itineraryWithoutBike, start, end, activeMQ);
+                }
             }
-            return finalItinerary;
+
+            //PAR DEFAUT, ON RETOURN LE TRAJET LE PLUS COURT
+            if (durationBICYCLE <= durationPEDESTRIAN){
+                Console.WriteLine("Velo plus rapide que la marche !");
+               return setupItinerary(itineraryWithBike,start, end, activeMQ);
+            }
+            else{
+                Console.WriteLine("Marche plus rapide que le vélo !");
+                return setupItinerary(itineraryWithoutBike,start,end, activeMQ);
+            }
+
         }
 
-        /**
-         * 
-         * DUREE D'ITINERAIRE A SUIVANT LE TYPE DE TRAJET
-         * 
-         * */
-
-        private static TimeSpan getItineraryDuration(Adress_OBJ start, Adress_OBJ end, MEANS_TRANSPORT transportMean)
+        private static string getCityFromPlaces(Places place)
         {
-            List<GeoCoordinate> pausePoints = new List<GeoCoordinate>();
-            pausePoints.Add(start.coordinates);
-            pausePoints.Add(end.coordinates);
-
-            var itineraryJSONTask = Task.Run(() => Requester_OpenRouteService.getItinerary(pausePoints, transportMean));
-            itineraryJSONTask.Wait();
-            var itineraryJSONString = itineraryJSONTask.Result;
-
-            Itinerary itinerary = JsonConvert.DeserializeObject<Itinerary>(itineraryJSONString);
-            double trajectTotalDuration = itinerary.routes[0].summary.duration;
-            return TimeSpan.FromSeconds(trajectTotalDuration);
+            if (place.address.town != null) return place.address.town;
+            if (place.address.municipality != null) return place.address.municipality;
+            if (place.address.suburb != null) return place.address.suburb;
+            else
+                throw new Exception("Aucune ville trouvée ! pour l'endroit donner"+place);
         }
+
+        private static Guid setupItinerary(Itinerary finalItinerary, Places start, Places end,bool activeMQ)
+        {
+            I_JCDecauxClient jcClient = new I_JCDecauxClient();
+            finalItinerary.firstStationPosition = jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(start.finalCoordinate).position);
+            finalItinerary.lastStationPosition = jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(end.finalCoordinate).position);
+            finalItinerary.totalSteps = 0;
+            foreach (Segment s in finalItinerary.routes[0].segments) { foreach (Step step in s.steps) { finalItinerary.totalSteps++; } }
+
+            //ON PREND L'ID DE L'ITINERAIRE GENERER
+            Guid itineraryID = ItineraryManager.addItinerary(finalItinerary);
+            //ON PLACE LES ETAPES DANS LA QUEUE
+            if (activeMQ) { NewActiveMQSession(itineraryID, finalItinerary); }
+
+            //ON RETOURNE AU CLIENT L'ID DE L'ITINERAIRE
+            return itineraryID;
+        }
+
+        private static void NewActiveMQSession(Guid guid,Itinerary itineraryResponse)
+        {
+            IConnectionFactory factory = new ConnectionFactory("tcp://LEGION-JULIEN:61616");
+            using (IConnection connection = factory.CreateConnection())
+            {
+                connection.Start();
+
+                ISession session = connection.CreateSession(AcknowledgementMode.AutoAcknowledge);
+
+                // Use the session to target a queue.
+                string queueName = "Itinerary" + guid.ToString();
+                IDestination destination = session.GetQueue(queueName);
+
+                // Create a Producer targetting the selected queue.
+                IMessageProducer producer = session.CreateProducer(destination);
+
+                // You may configure everything to your needs, for instance:
+                producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+
+
+                foreach (Segment segment in itineraryResponse.routes[0].segments)
+                {
+                    foreach (Step step in segment.steps)
+                    {
+                        ITextMessage message = session.CreateTextMessage(Step.serialize(step));
+                        producer.Send(message);
+                    }
+                }
+                connection.Close();
+                // Votre code pour interagir avec ActiveMQ ici
+
+            }
+        }
+
+
     }
 }

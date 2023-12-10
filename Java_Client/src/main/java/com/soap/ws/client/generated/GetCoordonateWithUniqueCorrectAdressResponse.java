@@ -32,7 +32,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "getCoordonateWithUniqueCorrectAdressResult"
 })
-@XmlRootElement(name = "getCoordonateWithUniqueCorrectAdressResponse", namespace = "http://tempuri.org/")
+@XmlRootElement(name = "getCoordonateWithUniqueCorrectAdressResponse")
 public class GetCoordonateWithUniqueCorrectAdressResponse {
 
     @XmlElementRef(name = "getCoordonateWithUniqueCorrectAdressResult", namespace = "http://tempuri.org/", type = JAXBElement.class, required = false)
