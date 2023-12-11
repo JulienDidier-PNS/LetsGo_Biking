@@ -39,32 +39,41 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
             Console.WriteLine("Appel au proxy !");
             JCContrat contratEnd = jcClient.getContractByCityName(endCity);
 
+            List<GeoCoordinate> pausePointWithoutBike = new List<GeoCoordinate>();
+            pausePointWithoutBike.Add(start.finalCoordinate);
+            pausePointWithoutBike.Add(end.finalCoordinate);
+            if (transport != null)
+            {
+                //SI L'UTILISATEUR VEUT UN TRAJET à PIED
+                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.PEDESTRIANS)))
+                {
+                    Console.WriteLine("L'utilisateur demandeun trajet à pied !");
+                    Itinerary itinerary = await getPedestrianItinerary(pausePointWithoutBike, activeMQ);
+                    return setupItinerary(itinerary,start,end,activeMQ);
+                }
+            }
             List<GeoCoordinate> pausePointsWithBike = new List<GeoCoordinate>();
             //AJOUT DANS L'ORDRE DES ETAPES
             pausePointsWithBike.Add(start.finalCoordinate);
             pausePointsWithBike.Add(jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(start.finalCoordinate).position));
             pausePointsWithBike.Add(jcClient.positionToGeoCoordinates(jcClient.getNearestStationWithBikesAvailableFromPosition(end.finalCoordinate).position));
             pausePointsWithBike.Add(end.finalCoordinate);
-
-            List<GeoCoordinate> pausePointWithoutBike = new List<GeoCoordinate>();
-            pausePointWithoutBike.Add(start.finalCoordinate);
-            pausePointWithoutBike.Add(end.finalCoordinate);
-
-            //RECUPERATION DE L'ITINERAIRE JSON
-            var jsonItineraryTaskWithBike = Requester_OpenRouteService.getItinerary(pausePointsWithBike, MEANS_TRANSPORT.BICYCLE);
-            var jsonItineraryTaskPedestrian = Requester_OpenRouteService.getItinerary(pausePointWithoutBike, MEANS_TRANSPORT.PEDESTRIANS);
-
-            await jsonItineraryTaskWithBike;
-            await jsonItineraryTaskPedestrian;
-
-            string jsonItineraryResponseWithBike = jsonItineraryTaskWithBike.Result;
-            string jsonItineraryResponseWithoutBike = jsonItineraryTaskPedestrian.Result;
+            if (transport != null)
+            {
+                //SI L'UTILISATEUR VEUT UN TRAJET EN VELO
+                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.BICYCLE)))
+                {
+                    Console.WriteLine("L'utilisateur demande un trajet en vélo !");
+                    Itinerary itinerary = await getBikeItinerary(pausePointsWithBike, activeMQ);
+                    return setupItinerary(itinerary,start,end,activeMQ);
+                }
+            }
+         
 
             //CONVERSION DE L'ITINERAIRE JSON EN OBJET 
-            Itinerary itineraryWithBike = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithBike);
-            itineraryWithBike.typeOfItinerary = "BIKE";
-            Itinerary itineraryWithoutBike = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithoutBike);
-            itineraryWithoutBike.typeOfItinerary = "PEDESTRIAN";
+
+            Itinerary itineraryWithoutBike = await getPedestrianItinerary(pausePointWithoutBike,activeMQ);
+            Itinerary itineraryWithBike = await getBikeItinerary(pausePointsWithBike,activeMQ);
 
             TimeSpan durationPEDESTRIAN = TimeSpan.FromSeconds(itineraryWithoutBike.routes[0].summary.duration);
             TimeSpan durationBICYCLE = TimeSpan.FromSeconds(itineraryWithBike.routes[0].summary.duration);
@@ -97,21 +106,7 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
                     else { return setupItinerary(itineraryWithoutBike, start, end, activeMQ); }
                 }
             }
-            if (transport != null)
-            {
-                //SI L'UTILISATEUR VEUT UN TRAJET EN VELO
-                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.BICYCLE)))
-                {
-                    Console.WriteLine("L'utilisateur demande un trajet en vélo !");
-                    return setupItinerary(itineraryWithBike, start, end, activeMQ);
-                }
-                //SI L'UTILISATEUR VEUT UN TRAJET à PIED
-                if (transport.Equals(ENUMS_EXTENSION.ToDescriptionString(MEANS_TRANSPORT.PEDESTRIANS)))
-                {
-                    Console.WriteLine("L'utilisateur demandeun trajet à pied !");
-                    return setupItinerary(itineraryWithoutBike, start, end, activeMQ);
-                }
-            }
+           
 
             //PAR DEFAUT, ON RETOURN LE TRAJET LE PLUS COURT
             if (durationBICYCLE <= durationPEDESTRIAN){
@@ -183,6 +178,28 @@ namespace CS_Server_Main.InternalSystem.RoutingSystem
                 // Votre code pour interagir avec ActiveMQ ici
 
             }
+        }
+
+        private static async Task<Itinerary> getBikeItinerary(List<GeoCoordinate> pausePoint,bool activeMQ)
+        {
+            //RECUPERATION DE L'ITINERAIRE JSON
+            var jsonItineraryTaskWithBike = Requester_OpenRouteService.getItinerary(pausePoint, MEANS_TRANSPORT.BICYCLE);
+            await jsonItineraryTaskWithBike;
+            string jsonItineraryResponseWithBike = jsonItineraryTaskWithBike.Result;
+            Itinerary itineraryWithBike = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithBike);
+            itineraryWithBike.typeOfItinerary = "BIKE";
+            return itineraryWithBike;
+        }
+
+        private static async Task<Itinerary> getPedestrianItinerary(List<GeoCoordinate> pausePoint, bool activeMQ)
+        {
+            //RECUPERATION DE L'ITINERAIRE JSON
+            var jsonItineraryTaskWithBike = Requester_OpenRouteService.getItinerary(pausePoint, MEANS_TRANSPORT.BICYCLE);
+            await jsonItineraryTaskWithBike;
+            string jsonItineraryResponseWithBike = jsonItineraryTaskWithBike.Result;
+            Itinerary itinerary = JsonConvert.DeserializeObject<Itinerary>(jsonItineraryResponseWithBike);
+            itinerary.typeOfItinerary = "PEDESTRIAN";
+            return itinerary;
         }
 
 

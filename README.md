@@ -33,6 +33,7 @@ And run :
 3. ActiveMQ
 4. Java CLIENT 
 
+*All adresses are showed in their respective windows*
 
 ## Current project status 🌐
 
@@ -45,8 +46,8 @@ All parts are covered (except the map 📍)
 - Routing Server ✅
 
 ## PROXY-CACHE :
-Creation of an service named "JCDecaux_service" wich contains all values in the cache.
--  Contracts are update📜 if the last update is more than 1 week
+Creation of an service named "JCDecaux_service" wich contains all values in the "JCDecaux_Cache".
+- Contracts are update📜 if the last update is more than 1 week
 - The service update stations at every request </br> *(i assumed that the client need to get the real time information when he wants to get an available sattion)*
 
 - Cache is not a generic cache
