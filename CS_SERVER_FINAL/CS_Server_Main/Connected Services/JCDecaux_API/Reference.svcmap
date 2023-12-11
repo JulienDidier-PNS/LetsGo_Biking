@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="11924cc4-664c-4795-959a-1e7aa9119149" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8091/MyService/Middleware/ProxyCache" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProxyCache.xsd" MetadataType="Schema" ID="67252376-89fc-4bc4-a7ba-b2a6100ad10e" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd4" />
+    <MetadataFile FileName="ProxyCache1.xsd" MetadataType="Schema" ID="e71f2401-c46a-4449-bbdf-9e1f293d6573" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd3" />
+    <MetadataFile FileName="ProxyCache.disco" MetadataType="Disco" ID="eaa45bb6-0e3d-40d0-8324-ed0502f26305" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?disco" />
+    <MetadataFile FileName="JCDecaux_Service.wsdl" MetadataType="Wsdl" ID="269e5963-49e5-421e-a623-a7baca714681" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?wsdl" />
+    <MetadataFile FileName="ProxyCache2.xsd" MetadataType="Schema" ID="a466e621-4b28-462a-a5b2-df49c89128b5" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd1" />
+    <MetadataFile FileName="ProxyCache3.xsd" MetadataType="Schema" ID="7e770597-0b2f-4cf6-972e-30da550f8629" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd0" />
+    <MetadataFile FileName="ProxyCache5.xsd" MetadataType="Schema" ID="217dd721-69cc-4e5f-8708-56a7852861c6" SourceId="1" SourceUrl="http://localhost:8091/MyService/Middleware/ProxyCache?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

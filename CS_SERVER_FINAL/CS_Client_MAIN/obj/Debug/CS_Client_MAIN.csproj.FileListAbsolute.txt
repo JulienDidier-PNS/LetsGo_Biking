@@ -1,0 +1,7 @@
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\bin\Debug\CS_Client_MAIN.exe.config
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\bin\Debug\CS_Client_MAIN.exe
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\bin\Debug\CS_Client_MAIN.pdb
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\obj\Debug\CS_Client_MAIN.csproj.AssemblyReference.cache
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\obj\Debug\CS_Client_MAIN.csproj.CoreCompileInputs.cache
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\obj\Debug\CS_Client_MAIN.exe
+C:\Users\Julien\Documents\POLYTECH\COURS\S7\MIDDLEWARE\LetsGo_Biking\CS_SERVER_FINAL\CS_Client_MAIN\obj\Debug\CS_Client_MAIN.pdb
